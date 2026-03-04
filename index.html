@@ -749,7 +749,7 @@ function renderCurated() {
   const tc={federal:"src-federal",foundation:"src-foundation",state:"src-state",industry:"src-industry"};
   grid.innerHTML=data.map((o,i)=>`
     <div class="opp-card type-${o.type}" data-title="${o.title.replace(/"/g,"&quot;")}" style="animation-delay:${i*.04}s">
-      ${o.pinned?'<span class="pinned-badge">⭐ ORDA Pick</span>':""}
+
       <div class="card-row1">
         <span class="src-tag ${tc[o.type]||"src-foundation"}">${tl[o.type]||o.type}</span>
         <span class="urg-chip urg-${urgClass(o.deadline)}">${urgLabel(o.deadline)}</span>
