@@ -7,13 +7,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-/* ── Tulane brand tokens ── */
 :root {
   --tulane-green:     #285C4D;
   --tulane-green-dk:  #1a3d34;
   --tulane-green-mid: #1f4a3e;
   --tulane-blue:      #71C5E8;
-  --tulane-blue-dk:   #3a9fc4;
   --storm:            #00778D;
   --mardi:            #78BE20;
   --gold:             #C8922A;
@@ -29,205 +27,90 @@
   --radius: 11px;
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Source Sans 3', sans-serif; background: var(--cream); color: var(--text); min-height: 100vh; }
+body { font-family: "Source Sans 3", sans-serif; background: var(--cream); color: var(--text); min-height: 100vh; }
 a { color: inherit; text-decoration: none; }
 
-/* ══ HEADER ══ */
-header {
-  background: var(--tulane-green-dk);
-  position: sticky; top: 0; z-index: 200;
-  box-shadow: 0 2px 20px rgba(0,0,0,.35);
-}
-.header-inner {
-  max-width: 1320px; margin: 0 auto;
-  padding: 0 40px;
-  display: flex; align-items: stretch; gap: 0;
-  min-height: 64px;
-}
-/* Green Wave accent stripe */
-.header-inner::after {
-  content: '';
-  position: absolute; bottom: 0; left: 0; right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--mardi) 0%, var(--tulane-blue) 50%, var(--mardi) 100%);
-}
-.logo-block {
-  display: flex; align-items: center; gap: 14px;
-  padding: 14px 0; flex: 1;
-}
-.logo-shield {
-  width: 44px; height: 42px; flex-shrink: 0;
-  display: flex; align-items: center; justify-content: center;
-}
+/* HEADER */
+header { background: var(--tulane-green-dk); position: sticky; top: 0; z-index: 200; box-shadow: 0 2px 20px rgba(0,0,0,.35); }
+.header-inner { max-width: 1320px; margin: 0 auto; padding: 0 40px; display: flex; align-items: stretch; gap: 0; min-height: 64px; position: relative; }
+.header-inner::after { content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--mardi) 0%, var(--tulane-blue) 50%, var(--mardi) 100%); }
+.logo-block { display: flex; align-items: center; gap: 14px; padding: 14px 0; flex: 1; }
+.logo-shield { width: 44px; height: 42px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
 .logo-shield img { width: 44px; height: auto; display: block; }
 .logo-text { display: flex; flex-direction: column; }
-.logo-text .school {
-  font-family: 'Crimson Pro', serif;
-  font-size: 1.05rem; font-weight: 600; color: #fff;
-  line-height: 1.2; letter-spacing: .01em;
-}
-.logo-text .office {
-  font-size: .67rem; color: rgba(255,255,255,.5);
-  letter-spacing: .1em; text-transform: uppercase;
-  font-weight: 400; margin-top: 2px;
-}
-.header-actions {
-  display: flex; align-items: center; gap: 12px; padding: 14px 0;
-}
-.pivot-btn {
-  font-size: .74rem; font-weight: 600; color: rgba(255,255,255,.75);
-  border: 1.5px solid rgba(255,255,255,.22); border-radius: 20px;
-  padding: 6px 14px; transition: all .18s; white-space: nowrap;
-  font-family: 'Source Sans 3', sans-serif;
-}
+.logo-text .school { font-family: "Crimson Pro", serif; font-size: 1.05rem; font-weight: 600; color: #fff; line-height: 1.2; letter-spacing: .01em; }
+.logo-text .office { font-size: .67rem; color: rgba(255,255,255,.5); letter-spacing: .1em; text-transform: uppercase; font-weight: 400; margin-top: 2px; }
+.header-actions { display: flex; align-items: center; gap: 12px; padding: 14px 0; }
+.pivot-btn { font-size: .74rem; font-weight: 600; color: rgba(255,255,255,.75); border: 1.5px solid rgba(255,255,255,.22); border-radius: 20px; padding: 6px 14px; transition: all .18s; white-space: nowrap; font-family: "Source Sans 3", sans-serif; }
 .pivot-btn:hover { color: #fff; border-color: var(--tulane-blue); background: rgba(113,197,232,.12); }
 #last-updated { font-size: .67rem; color: rgba(255,255,255,.28); white-space: nowrap; }
 
-/* ══ DEPT TABS ══ */
-.dept-bar {
-  background: var(--tulane-green-mid);
-  border-bottom: 1px solid rgba(255,255,255,.06);
-  overflow-x: auto; scrollbar-width: none;
-}
+/* DEPT TABS */
+.dept-bar { background: var(--tulane-green-mid); border-bottom: 1px solid rgba(255,255,255,.06); overflow-x: auto; scrollbar-width: none; }
 .dept-bar::-webkit-scrollbar { display: none; }
-.dept-tabs {
-  max-width: 1320px; margin: 0 auto;
-  padding: 0 40px; display: flex; white-space: nowrap;
-}
-.dept-tab {
-  padding: 12px 17px;
-  font-size: .75rem; font-weight: 500; font-family: 'Source Sans 3', sans-serif;
-  color: rgba(255,255,255,.43);
-  cursor: pointer; border: none; background: none;
-  border-bottom: 3px solid transparent;
-  transition: color .18s, border-color .18s;
-}
+.dept-tabs { max-width: 1320px; margin: 0 auto; padding: 0 40px; display: flex; white-space: nowrap; }
+.dept-tab { padding: 12px 17px; font-size: .75rem; font-weight: 500; font-family: "Source Sans 3", sans-serif; color: rgba(255,255,255,.43); cursor: pointer; border: none; background: none; border-bottom: 3px solid transparent; transition: color .18s, border-color .18s; }
 .dept-tab:hover { color: rgba(255,255,255,.8); }
 .dept-tab.active { color: #fff; border-bottom-color: var(--tulane-blue); }
 .dept-tab .abbr { font-weight: 700; margin-right: 4px; }
 
-/* ══ FILTER BAR ══ */
-.filter-bar {
-  background: var(--warm-white);
-  border-bottom: 1px solid var(--rule);
-  position: sticky; top: 70px; z-index: 100;
-}
-.filter-inner {
-  max-width: 1320px; margin: 0 auto;
-  padding: 10px 40px;
-  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
-}
+/* FILTER BAR */
+.filter-bar { background: var(--warm-white); border-bottom: 1px solid var(--rule); position: sticky; top: 70px; z-index: 100; }
+.filter-inner { max-width: 1320px; margin: 0 auto; padding: 10px 40px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .filter-label { font-size: .66rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-right: 2px; }
-.filter-btn {
-  padding: 5px 12px; border-radius: 18px;
-  border: 1.5px solid var(--rule); background: transparent;
-  font-family: 'Source Sans 3', sans-serif; font-size: .74rem; font-weight: 500;
-  color: var(--muted); cursor: pointer; transition: all .15s;
-}
+.filter-btn { padding: 5px 12px; border-radius: 18px; border: 1.5px solid var(--rule); background: transparent; font-family: "Source Sans 3", sans-serif; font-size: .74rem; font-weight: 500; color: var(--muted); cursor: pointer; transition: all .15s; }
 .filter-btn:hover { border-color: var(--tulane-green); color: var(--tulane-green); }
 .filter-btn.active { background: var(--tulane-green); border-color: var(--tulane-green); color: #fff; }
 .vr { width: 1px; height: 20px; background: var(--rule); margin: 0 4px; flex-shrink: 0; }
 .sort-wrap { display: flex; align-items: center; gap: 7px; }
 .sort-label { font-size: .66rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
-.sort-select {
-  padding: 5px 28px 5px 10px; border-radius: 18px;
-  border: 1.5px solid var(--rule); background: var(--cream);
-  font-family: 'Source Sans 3', sans-serif; font-size: .74rem; color: var(--text);
-  cursor: pointer; outline: none; appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%235e6a62'/%3E%3C/svg%3E");
-  background-repeat: no-repeat; background-position: right 10px center;
-  transition: border-color .15s;
-}
+.sort-select { padding: 5px 28px 5px 10px; border-radius: 18px; border: 1.5px solid var(--rule); background: var(--cream); font-family: "Source Sans 3", sans-serif; font-size: .74rem; color: var(--text); cursor: pointer; outline: none; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%235e6a62'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 10px center; transition: border-color .15s; }
 .sort-select:focus { border-color: var(--tulane-green); }
 .search-wrap { margin-left: auto; position: relative; }
-.search-wrap input {
-  padding: 7px 14px 7px 34px; border-radius: 18px;
-  border: 1.5px solid var(--rule); background: var(--cream);
-  font-family: 'Source Sans 3', sans-serif; font-size: .78rem;
-  color: var(--text); width: 210px; outline: none;
-  transition: border-color .18s, width .25s;
-}
+.search-wrap input { padding: 7px 14px 7px 34px; border-radius: 18px; border: 1.5px solid var(--rule); background: var(--cream); font-family: "Source Sans 3", sans-serif; font-size: .78rem; color: var(--text); width: 210px; outline: none; transition: border-color .18s, width .25s; }
 .search-wrap input:focus { border-color: var(--tulane-green); width: 260px; }
 .search-icon { position: absolute; left: 11px; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: .8rem; pointer-events: none; }
 
-/* ══ MAIN ══ */
+/* MAIN */
 main { max-width: 1320px; margin: 0 auto; padding: 30px 40px 80px; }
 
-/* ══ DEPT BANNER ══ */
-.dept-banner {
-  background: linear-gradient(135deg, var(--tulane-green-dk) 0%, var(--tulane-green-mid) 100%);
-  border-radius: var(--radius); padding: 20px 26px;
-  display: flex; align-items: center; gap: 18px;
-  margin-bottom: 28px; box-shadow: var(--shadow-md);
-  animation: fadeUp .3s ease;
-  border-top: 3px solid var(--tulane-blue);
-}
+/* DEPT BANNER */
+.dept-banner { background: linear-gradient(135deg, var(--tulane-green-dk) 0%, var(--tulane-green-mid) 100%); border-radius: var(--radius); padding: 20px 26px; display: flex; align-items: center; gap: 18px; margin-bottom: 28px; box-shadow: var(--shadow-md); animation: fadeUp .3s ease; border-top: 3px solid var(--tulane-blue); }
 .dept-banner-icon { width: 46px; height: 46px; border-radius: 9px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 1.45rem; }
-.dept-banner-body h2 { font-family: 'Crimson Pro', serif; font-size: 1.25rem; color: #fff; font-weight: 600; }
+.dept-banner-body h2 { font-family: "Crimson Pro", serif; font-size: 1.25rem; color: #fff; font-weight: 600; }
 .dept-banner-body p  { font-size: .78rem; color: rgba(255,255,255,.5); margin-top: 3px; line-height: 1.5; }
 .dept-banner-body p a { color: var(--tulane-blue); }
 .dept-banner-count { margin-left: auto; text-align: right; flex-shrink: 0; }
-.dept-banner-count .num { font-family: 'Crimson Pro', serif; font-size: 2.1rem; color: var(--tulane-blue); line-height: 1; }
+.dept-banner-count .num { font-family: "Crimson Pro", serif; font-size: 2.1rem; color: var(--tulane-blue); line-height: 1; }
 .dept-banner-count .lbl { font-size: .65rem; color: rgba(255,255,255,.35); letter-spacing: .08em; text-transform: uppercase; }
 
-/* ══ DEADLINE STRIP ══ */
-.deadline-strip {
-  background: #fffbf0; border: 1.5px solid #e8cf85;
-  border-left: 4px solid var(--gold);
-  border-radius: var(--radius); padding: 13px 18px;
-  margin-bottom: 24px; display: none;
-}
+/* DEADLINE STRIP */
+.deadline-strip { background: #fffbf0; border: 1.5px solid #e8cf85; border-left: 4px solid var(--gold); border-radius: var(--radius); padding: 13px 18px; margin-bottom: 24px; display: none; }
 .strip-label { font-size: .66rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #8a6010; margin-bottom: 9px; }
 .strip-pills { display: flex; gap: 8px; flex-wrap: wrap; }
-.strip-pill {
-  background: #fff; border: 1.5px solid #e8cf85; border-radius: 20px;
-  padding: 5px 12px; font-size: .74rem; cursor: pointer;
-  transition: all .15s; display: flex; align-items: center; gap: 7px;
-}
+.strip-pill { background: #fff; border: 1.5px solid #e8cf85; border-radius: 20px; padding: 5px 12px; font-size: .74rem; cursor: pointer; transition: all .15s; display: flex; align-items: center; gap: 7px; }
 .strip-pill:hover { border-color: var(--gold); box-shadow: var(--shadow-sm); }
 .pill-name { font-weight: 500; color: var(--text); }
 .pill-days { font-weight: 700; color: #8a6010; }
 
-/* ══ SECTION HEADERS ══ */
-.section-hd {
-  display: flex; align-items: baseline; justify-content: space-between;
-  margin-bottom: 16px; gap: 16px; flex-wrap: wrap;
-}
-.section-hd-left h2 { font-family: 'Crimson Pro', serif; font-size: 1.5rem; color: var(--tulane-green-dk); font-weight: 700; }
+/* SECTION HEADERS */
+.section-hd { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 16px; gap: 16px; flex-wrap: wrap; }
+.section-hd-left h2 { font-family: "Crimson Pro", serif; font-size: 1.5rem; color: var(--tulane-green-dk); font-weight: 700; }
 .section-hd-left p  { font-size: .79rem; color: var(--muted); margin-top: 3px; }
 .section-hd-left p a { color: var(--storm); font-weight: 600; }
 .result-count { font-size: .76rem; color: var(--muted); white-space: nowrap; }
 .result-count strong { color: var(--text); font-weight: 600; }
 
-/* ══ FEATURED CARDS ══ */
+/* CARDS */
 .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; margin-bottom: 8px; }
-
-.opp-card {
-  background: var(--warm-white); border-radius: var(--radius);
-  padding: 22px 24px; box-shadow: var(--shadow-sm);
-  border: 1.5px solid transparent;
-  transition: box-shadow .2s, transform .2s, border-color .2s;
-  position: relative; overflow: hidden;
-  display: flex; flex-direction: column;
-  animation: fadeUp .3s ease both;
-}
-.opp-card::before {
-  content: ''; position: absolute; top: 0; left: 0;
-  width: 4px; height: 100%; border-radius: var(--radius) 0 0 var(--radius);
-}
+.opp-card { background: var(--warm-white); border-radius: var(--radius); padding: 22px 24px; box-shadow: var(--shadow-sm); border: 1.5px solid transparent; transition: box-shadow .2s, transform .2s, border-color .2s; position: relative; overflow: hidden; display: flex; flex-direction: column; animation: fadeUp .3s ease both; }
+.opp-card::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; border-radius: var(--radius) 0 0 var(--radius); }
 .opp-card.type-foundation::before { background: var(--gold); }
 .opp-card.type-federal::before    { background: var(--storm); }
 .opp-card.type-state::before      { background: var(--mardi); }
 .opp-card.type-industry::before   { background: #7a2080; }
 .opp-card.type-internal::before   { background: var(--tulane-green); }
 .opp-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); border-color: var(--rule); }
-
-.pinned-badge {
-  position: absolute; top: 14px; right: 14px;
-  font-size: .6rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
-  background: var(--tulane-green); color: #fff;
-  padding: 2px 7px; border-radius: 4px;
-}
 
 .card-row1 { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin-bottom: 10px; }
 .src-tag { font-size: .62rem; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; padding: 3px 8px; border-radius: 4px; white-space: nowrap; }
@@ -236,74 +119,41 @@ main { max-width: 1320px; margin: 0 auto; padding: 30px 40px 80px; }
 .src-state      { background: #e8f5d4; color: #3d6010; }
 .src-industry   { background: #ede6fa; color: #4e1a8a; }
 .src-internal   { background: #e0ede8; color: #1a3d34; }
-
 .urg-chip { font-size: .68rem; font-weight: 600; white-space: nowrap; padding: 3px 8px; border-radius: 4px; }
 .urg-urgent { background: #fff0f0; color: #a82020; }
 .urg-soon   { background: #fff7ed; color: #8a5010; }
 .urg-normal { background: var(--cream); color: var(--muted); font-weight: 400; }
 .forecasted-badge { font-size: .68rem; font-weight: 600; padding: 3px 8px; border-radius: 4px; background: #e8f0fd; color: #2a4a8a; white-space: nowrap; }
 
-.card-title  { font-family: 'Crimson Pro', serif; font-size: 1.05rem; color: var(--tulane-green-dk); line-height: 1.32; margin-bottom: 4px; font-weight: 600; }
+.card-title  { font-family: "Crimson Pro", serif; font-size: 1.05rem; color: var(--tulane-green-dk); line-height: 1.32; margin-bottom: 4px; font-weight: 600; }
 .card-funder { font-size: .78rem; font-weight: 600; color: var(--storm); margin-bottom: 3px; }
 .card-dl     { font-size: .75rem; color: var(--text); font-weight: 500; margin-bottom: 10px; }
 .card-dl span { color: var(--muted); font-weight: 400; }
-
 .dept-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 10px; }
 .dept-tag  { font-size: .6rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 2px 7px; border-radius: 4px; border: 1.5px solid; }
-
 .card-desc   { font-size: .8rem; color: var(--muted); line-height: 1.57; flex: 1; margin-bottom: 14px; }
 .card-footer { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; margin-top: auto; }
 .amount-pill { font-size: .71rem; font-weight: 600; color: var(--gold); background: var(--gold-pale); padding: 3px 10px; border-radius: 5px; }
 .card-link   { font-size: .76rem; font-weight: 600; color: var(--storm); display: flex; align-items: center; gap: 3px; transition: color .15s; }
 .card-link:hover { color: var(--tulane-green-dk); }
 
-/* ══ DIVIDER ══ */
-.section-divider {
-  border: none;
-  border-top: 2px solid var(--rule);
-  margin: 40px 0 32px;
-  position: relative;
-}
-.section-divider::after {
-  content: 'LIVE FEDERAL FEED';
-  position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
-  background: var(--cream); padding: 0 14px;
-  font-size: .62rem; font-weight: 700; letter-spacing: .12em; color: var(--muted);
-}
+/* DIVIDER */
+.section-divider { border: none; border-top: 2px solid var(--rule); margin: 40px 0 32px; position: relative; }
+.section-divider::after { content: "LIVE FEDERAL FEED"; position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: var(--cream); padding: 0 14px; font-size: .62rem; font-weight: 700; letter-spacing: .12em; color: var(--muted); }
 
-/* ══ FEDERAL LIST ══ */
-.federal-intro {
-  background: var(--warm-white);
-  border: 1.5px solid var(--rule);
-  border-left: 4px solid var(--storm);
-  border-radius: 0 var(--radius) var(--radius) 0;
-  padding: 11px 16px;
-  font-size: .76rem; color: #1a3a46; line-height: 1.52;
-  margin-bottom: 18px;
-}
+/* FEDERAL LIST */
+.federal-intro { background: var(--warm-white); border: 1.5px solid var(--rule); border-left: 4px solid var(--storm); border-radius: 0 var(--radius) var(--radius) 0; padding: 11px 16px; font-size: .76rem; color: #1a3a46; line-height: 1.52; margin-bottom: 18px; }
 .federal-intro strong { font-weight: 600; }
 .federal-intro a { color: var(--storm); font-weight: 600; }
-
 .federal-list { display: flex; flex-direction: column; gap: 7px; }
-.fed-item {
-  background: var(--warm-white); border-radius: 9px;
-  padding: 12px 17px; box-shadow: var(--shadow-sm);
-  display: grid; grid-template-columns: 1fr auto;
-  gap: 8px 16px; align-items: center;
-  border: 1.5px solid transparent;
-  transition: all .17s ease;
-  animation: fadeUp .3s ease both;
-}
+.fed-item { background: var(--warm-white); border-radius: 9px; padding: 12px 17px; box-shadow: var(--shadow-sm); display: grid; grid-template-columns: 1fr auto; gap: 8px 16px; align-items: center; border: 1.5px solid transparent; transition: all .17s ease; animation: fadeUp .3s ease both; }
 .fed-item:hover { border-color: var(--rule); transform: translateX(3px); box-shadow: var(--shadow-md); }
-
-.fed-left {}
 .fed-meta { display: flex; align-items: center; gap: 6px; margin-bottom: 4px; flex-wrap: wrap; }
 .agency-tag { font-size: .62rem; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; padding: 2px 7px; border-radius: 3px; background: #d4f0f8; color: #005569; }
 .opp-num { font-size: .63rem; color: var(--muted); font-family: monospace; }
 .fed-title { font-size: .9rem; font-weight: 500; color: var(--tulane-green-dk); line-height: 1.38; margin-bottom: 3px; }
 .fed-agency { font-size: .69rem; color: var(--muted); }
 .fed-dept-tags { margin-top: 6px; }
-
 .fed-right { text-align: right; white-space: nowrap; min-width: 110px; }
 .fed-dl-rel { font-size: .75rem; font-weight: 600; color: var(--muted); margin-bottom: 1px; }
 .fed-dl-rel.urgent { color: #a82020; }
@@ -312,42 +162,36 @@ main { max-width: 1320px; margin: 0 auto; padding: 30px 40px 80px; }
 .fed-link { font-size: .73rem; font-weight: 600; color: var(--storm); display: flex; align-items: center; gap: 3px; justify-content: flex-end; transition: color .15s; }
 .fed-link:hover { color: var(--tulane-green-dk); }
 
-/* ══ PAGINATION ══ */
+/* PAGINATION */
 .pagination { display: flex; align-items: center; justify-content: center; gap: 7px; margin-top: 22px; flex-wrap: wrap; }
-.page-btn { padding: 6px 13px; border-radius: 7px; border: 1.5px solid var(--rule); background: var(--warm-white); font-family: 'Source Sans 3', sans-serif; font-size: .78rem; cursor: pointer; transition: all .14s; color: var(--text); }
+.page-btn { padding: 6px 13px; border-radius: 7px; border: 1.5px solid var(--rule); background: var(--warm-white); font-family: "Source Sans 3", sans-serif; font-size: .78rem; cursor: pointer; transition: all .14s; color: var(--text); }
 .page-btn:hover:not(:disabled) { border-color: var(--tulane-green); color: var(--tulane-green); }
 .page-btn.active { background: var(--tulane-green); border-color: var(--tulane-green); color: #fff; }
 .page-btn:disabled { opacity: .35; cursor: default; }
-.page-sep { font-size: .74rem; color: var(--muted); }
 
-/* ══ LOADING / EMPTY ══ */
+/* LOADING / EMPTY */
 .loading-state { display: flex; flex-direction: column; align-items: center; padding: 40px 24px; color: var(--muted); gap: 12px; }
 .spinner { width: 28px; height: 28px; border: 3px solid var(--rule); border-top-color: var(--tulane-green); border-radius: 50%; animation: spin .75s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
 .loading-state p { font-size: .82rem; }
-
 .empty-state { grid-column: 1/-1; text-align: center; padding: 56px 24px; color: var(--muted); }
 .empty-icon { font-size: 2.2rem; margin-bottom: 12px; opacity: .3; }
-.empty-state h3 { font-family: 'Crimson Pro', serif; font-size: 1.1rem; color: var(--tulane-green-dk); margin-bottom: 6px; font-weight: 600; }
+.empty-state h3 { font-family: "Crimson Pro", serif; font-size: 1.1rem; color: var(--tulane-green-dk); margin-bottom: 6px; font-weight: 600; }
 .empty-state p { font-size: .83rem; }
 .empty-state a { color: var(--storm); font-weight: 600; }
-
 .error-note { background: #fff8f0; border: 1.5px solid #f0c070; border-radius: 9px; padding: 12px 16px; font-size: .77rem; color: #6b3a00; margin-bottom: 14px; display: none; line-height: 1.5; }
 
-/* ══ FOOTER ══ */
-.page-footer {
-  border-top: 2px solid var(--rule); margin-top: 48px; padding-top: 20px;
-  display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 14px;
-}
+/* FOOTER */
+.page-footer { border-top: 2px solid var(--rule); margin-top: 48px; padding-top: 20px; display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 14px; }
 .page-footer p { font-size: .73rem; color: var(--muted); line-height: 1.6; }
 .page-footer strong { color: var(--text); font-weight: 600; }
 .page-footer a { color: var(--storm); font-weight: 600; }
-.footer-logo { font-family: 'Crimson Pro', serif; font-size: 1rem; font-weight: 700; color: var(--tulane-green); letter-spacing: .02em; }
+.footer-logo { font-family: "Crimson Pro", serif; font-size: 1rem; font-weight: 700; color: var(--tulane-green); letter-spacing: .02em; }
 
-/* ══ ANIMATIONS ══ */
+/* ANIMATIONS */
 @keyframes fadeUp { from { opacity: 0; transform: translateY(9px); } to { opacity: 1; transform: translateY(0); } }
 
-/* ══ RESPONSIVE ══ */
+/* RESPONSIVE */
 @media (max-width: 800px) {
   .header-inner, .dept-tabs, .filter-inner, main { padding-left: 16px; padding-right: 16px; }
   .cards-grid { grid-template-columns: 1fr; }
@@ -362,9 +206,8 @@ main { max-width: 1320px; margin: 0 auto; padding: 30px 40px 80px; }
 </head>
 <body>
 
-<!-- ══ HEADER ══ -->
 <header>
-  <div class="header-inner" style="position:relative">
+  <div class="header-inner">
     <div class="logo-block">
       <div class="logo-shield"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABMCAIAAAB1Z6caAAAMPUlEQVR4nO1bfXBc1XU/577Pfbur1UpaW7YlS/6WP5CxHbBjIDHEuB6H8pVA2xA6dQDjDmnaTlLoJJRm0gRCnXRIyATCJE1psDN8BAIkqT1gF5uxbJk4YEvGtmRhy7JsyfrWar/ee/ec/vHQavXhYNBb06r6zY5m3n333nd+75x37jnnXiEzw/8niI9bgEuNScITHZOEJzomCU90TBKe6JgkPNExSXiiY5LwRIcPhCXRxSfVxCRJfoj+H2byiwH6NZ0kiSgE4ph3mZmYEFAIMdQfEAUijDGEAZgIALL9/cJ4p3Ol3Lbn5fbeTkUoApGZJUlJUhJJki5JT5+IqAhFCNFw9uSv9v1XIpPyLhGQiNycId4PAYQQQog9Rw7srq8FAGLyg+/4NMzACHjN128/191+7/o7bl65bt60yjF7tvd27m94+9W3Xt95qKYz3r2wbO5nV1y3fvmnqyurAro5ur8jnX3H3/7lnld+vvO572988L4Nf+lKqSrKRxY1Cx8I3/ide3bX7wPEwmDBstmLV86/fP70WcUF0Yxjn+/tOnHuVH3z8SMtjW09HQAcMoOaoibtdDKTsgyzckr5kooFi8rnVsRmFBcUudI9191+uPlYbcM7x1qaCMh2nB/c/c0vrb3NL8Lq+KeQJDVVi1jhjGPvOXJg56G9AlFVVSZ2pAsAmqKaulEYDMOgARuabummZDp1/szx1qbniASiqqgM7EoJAKZmWIapqVpbb4dfxuzBB8IAwMwuSYEYDgQFIjMwMyAgIAIQMDNLomH9WQKAoekB3USE3CEAwEzELEn6Il4u/CHswXOtlHv9gUOYJeewyn/JeDLwyMczEMdcThFREQIvsHTnCX6adC68NRYAiCllZ1zpBk0rtwMiutJN2ZmAbmiKJhB58NPNk0ge/CeMAJJoIJ1wpUREyzBnl84sKymtPf7OUB9Ex3WmRmPzps86fPJoZ7zbdhyBQlPVMZdlH+E/YckUtoKrF66YO61iScWCReXzls1anHHtRV9em7YzCioMLFAkMqlVC5Y9ufk7bT0dR1tP1DcfP3K64b32lndPN+bVyH0mjIgkydSNH2/+dqygyGts7mh9cOv3HNcVKBgYAIgobAbfPPLWlpee+odbNpVGY9cu+SQAbNvz8pefeihshvxde3Phs9NiZlM3G882P/riE5Kk7TqJdPKvfvDVl/bvUIWiCEXxQmSBuqYPpAYe3Pq9f3vlpwBgu05XvPeRF36sKxrnc3Xy30szU0A3d9fXMoCuajsP17xxuMZQ9c54T0+iry8ZjycHehPx7oHevuQAIv5kx7a+ZFxXtUOnjp5sbzF1E/Lpt/w36bRjhwNWKGC9+tbrQdPqTfZvueufYuGigGGoiqoqqqZq6UyagTO2HU8n4qmB3Udqg6Z18ETdzNj0/tQAEytCyZOe/SSsCNGXiN+x5uYHbt1cHI4ioq5qirioiD/j2FdVrbhvw50nzjVv/OHXznaf11XNR9my8NukET63ekN5yfSAbgZ0czTbbLY8ot3QdFMzLD2wtHLhqgXLk5mUwLwERb5pGAFt154WnVJdsUASCcSDTXWJTKqzv/tIS6PtOH2J/jWXrbp11XoAyLj2Iy881Zfst8xAxAovrVyoqVplrGxmbDoRXb3oimfeeMkvwUbAN8ICMWWnr1l8ZXE4CgDP7v2Noeqr5i870tL40C+2FEeKu3o6AdEj7DjOz3c9d7arXQgRDUZ2/ss2ywg8X/Pbm65cN7u0/Mq51REr7JLUFP/DBN/MBhFdktdd9klmbu5o/eYvH6uuXFgajcUKotFwtCQcjUaKQoH3o0vJFDaDsYKi4lC0KByNRYrLS6ZlHPsff/EoAlZOKa+eVZXKpC5UIRsPfCNMzLqiTSksQcQH/vO77b0dAMzMrpQuSZekK2Vu7phtlyRd6TJzQSD0wpuvvnLgNVVRikJRYspHyOWbzRCTqRsPPP3d5/f+bnfd/ogVJvoQEiMiAZu6+a1nf/gfu17Ye/RgOBD6314AUFAkUsntB98ImlY2dhCIiMgMgPDHHS8za5p+vrfzZHtL0LDydIDMT9fPAIpQIlYoV9YPFBsRs4bAzKqihgLB/EWXPrtBBpaUlRUBoMAKKYOKdckd3h2ZKWRaIdMCyFazhpWJfEceYun3PbaTcW0AWDxzvmUGHOnoimY7ztCDhdBVLZ5KzJ8+K6CbDJyyU74LMxp5iWYUIRLpVEvnWWaeWTL9KzdsTKSTXf1dXtUWABBwIJVo6+0oK5n2dzd+iZkR8MS5ZoEi32W8PJV4UBLtOlyzftmnbde5/5Z71y69alfdvmwlPePan7tqQ3Vl1fVLry4tjEmS6UymtuFtyzDzlwl78IHwaAdDRAWB0PN7f3fPur+YN63Sdp3ls5csn71kV12Nt8+Ucew719xSXVHFwK50VUV9csfWU+1noqHCsZYiP7U+PpNmAIDRKTsDK0JJpJNf+P5XDjbVeXkPAwyZNGIinQQABFQV9YntW//1pZ8UWOERbJkBUeiqDgBj7TF+FIxLw97ekmkYzDxCHmIKGGbz+dabHt5021Ubbl65bsGM2dkkCQFs12nuaK05dnDb7pfffPdAOBBCwNHGggCar3ni+EyaARBCpkVeYDEcRBTQTWL699ee3bb7ZU1V71xz64blawDAMgLfeGbL6Y5z/cl+RSiFwQIiGmvtZUUohcEw+Kbg8REmZgEwo2gqEY0pEDEhQElBsSJEW2/HQDrhtSNiZ3+PJBmLFLtSutIdazQQs65qpYUxGFylx4/xaRgBAKrK5iLihRwLA3TFuwExnozPmloOAJKkZQRiBUVNbacsw9IVLWCYowNJRHRdt6SgqHJqmXc5LlEHMS7CXvq2umpFNBRxpTumTIi4ce3t4UCoIBC6a+2feW2aojx290O/2rfd1Iw/NNXXHPt9QDdH7DkIxKSTvnb2omgwQkx+FUDGSVgQU0VsxnXVq1+s2R4NRXLdLHo2L/CBWzaXRmNeIzEJRGJaMeeyFXMuA4Ant2997Z03g6ZFcpiLRkAmvuNTNwG8v5PqC/x5bX9/410Bw7hAzIApOzP0PBSImKsuxx3DNBSh9CXj1yy+4k+WfYqYL7ISeDEYb+AhUEii6oqqv7lh48PP/2hqpMQZ5YFOdZxhYGI5wixdSZqqdMZ7FDEsokRESdLQjYe/eL8iFGLyz0n7cWyJmYmZmD7/6Obd9bVFocIRnAd3Esd6EOLok1iqonb0dT529z/fff2fS5I+qhd8MWkvodUU9cm/fmTW1Jl9ybimDjMcKaUrXVfKMX6um8sWATRVbe/t2Lz+i/lgCz4eTCMi7xjW7VvuO9V+pigUydXzhS1yKLoSQgBDR3/Xxs/c9vimbzGzuMCxtfHAN8IAIIkUIVq72u594hv/XVdTFCpUhHIxdSkEUBQ1kUm60v3azZu+/vn7PKnyUcTzkzAM6tkl+eiLT/zoN0+nHTtihRn+WBHDeyk9ib6qsrmP3Hn/9UuvJmbMD1vwnTB4ay8iAPzhvfpvP/f4rsM1qqKGzOAI2ggghEJEfcl4gRXauPa2r950T8QK5+O7zYX/hAGAAWhQ7l/X7nj8t0//vrFOVZWQGURAZhJCOK4bTw1YpnXjlWv/9oaNi8rnweBH4bs8ucgLYQ/e8VlvR+LX+3f87PVnDzQckkSGpiUz6aJw4Wc/ce2mdV+4fNYiAJAkvZgkT8JkkUfCHnJNdFfdvmfeePHdMyf+9BOfuf3qG7yTqET0gSVrH5F3wjDcwgHAka63SyaJ8BJS9XApCGeRZShJjoioLxkuKWEPXmHoEj80i4/jHX98bGHycOnExyThiQ6VmRkYeOQ+bTZfQURiHpm+D+8/bBQO3R1qGSyAeT1zF6Tcxtz+I1s+aM5c2bLHs4fuMgAAev9p9BHf1f9NqO+1tzR3nHGlnFNaMXtquVcQPdbadLa7nYEXTJ9TVlx66NTRzniPrqrZlxNPDiyfs2RadIq3Oeb9bTh7srmj1TLMlJ2ZUTR1Ydnctt7O+tPHNUUJ6IEr5lbXNr6TstMCxaoFywxVB4CMY+9veJuBdUVbXbXiXPf5+paGgG460rH0wMr5l7/Xfrqp7bQ357TC2OKZ81s6zx1vbdJUzdD0lfMur208lLJT2TCOmZOZ1OqqFRErnMykDjQeEkIgQDKT1lS1unLh/wB5zFwkP2jLlwAAAABJRU5ErkJggg==" alt="Tulane WSPH Shield"></div>
       <div class="logo-text">
@@ -373,18 +216,16 @@ main { max-width: 1320px; margin: 0 auto; padding: 30px 40px 80px; }
       </div>
     </div>
     <div class="header-actions">
-      <a href="https://pivot.proquest.com" target="_blank" class="pivot-btn">Search PIVOT →</a>
+      <a href="https://pivot.proquest.com" target="_blank" class="pivot-btn">Search PIVOT &#8594;</a>
       <span id="last-updated"></span>
     </div>
   </div>
 </header>
 
-<!-- ══ DEPT TABS ══ -->
 <nav class="dept-bar" aria-label="Filter by department">
   <div class="dept-tabs" id="dept-tabs"></div>
 </nav>
 
-<!-- ══ FILTER / SEARCH ══ -->
 <div class="filter-bar">
   <div class="filter-inner">
     <span class="filter-label">Source</span>
@@ -404,24 +245,20 @@ main { max-width: 1320px; margin: 0 auto; padding: 30px 40px 80px; }
       </select>
     </div>
     <div class="search-wrap">
-      <span class="search-icon">🔍</span>
-      <input type="text" id="search-input" placeholder="Search all opportunities…" aria-label="Search">
+      <span class="search-icon">&#128269;</span>
+      <input type="text" id="search-input" placeholder="Search all opportunities&#8230;" aria-label="Search">
     </div>
   </div>
 </div>
 
-<!-- ══ MAIN ══ -->
 <main>
   <div id="dept-banner-container"></div>
-
-  <!-- Deadline alert strip -->
   <div class="deadline-strip" id="deadline-strip">
-    <div class="strip-label">⚠️ Deadlines within 30 days</div>
+    <div class="strip-label">&#9888;&#65039; Deadlines within 30 days</div>
     <div class="strip-pills" id="strip-pills"></div>
   </div>
 
-  <!-- ── ORDA Featured Section ── -->
-  <div class="section-hd">
+  <div class="section-hd" id="curated-hd">
     <div class="section-hd-left">
       <h2>ORDA Featured Opportunities</h2>
       <p>Highlighted by the Office of Research Development and Administration. For full grant discovery, use <a href="https://pivot.proquest.com" target="_blank">PIVOT</a>.</p>
@@ -430,17 +267,15 @@ main { max-width: 1320px; margin: 0 auto; padding: 30px 40px 80px; }
   </div>
   <div class="cards-grid" id="cards-grid"></div>
 
-  <!-- ── Divider ── -->
   <div class="section-divider" id="fed-divider"></div>
 
-  <!-- ── Federal Feed Section ── -->
   <div id="federal-section">
     <div class="section-hd">
       <div class="section-hd-left">
         <h2>Federal Opportunities</h2>
         <p>Live feed from <a href="https://grants.gov" target="_blank">Grants.gov</a>, filtered to public health agencies. Updated automatically.</p>
       </div>
-      <div class="result-count" id="federal-count">Loading…</div>
+      <div class="result-count" id="federal-count">Loading&#8230;</div>
     </div>
     <div class="federal-intro">
       <strong>Auto-updated daily.</strong> Showing open opportunities from NIH, CDC, HRSA, AHRQ, SAMHSA, EPA, and NSF via the <a href="https://grants.gov" target="_blank">Grants.gov</a> public API.
@@ -448,31 +283,27 @@ main { max-width: 1320px; margin: 0 auto; padding: 30px 40px 80px; }
     </div>
     <div class="error-note" id="federal-error"></div>
     <div id="federal-container">
-      <div class="loading-state"><div class="spinner"></div><p>Fetching federal opportunities…</p></div>
+      <div class="loading-state"><div class="spinner"></div><p>Fetching federal opportunities&#8230;</p></div>
     </div>
     <div class="pagination" id="pagination"></div>
   </div>
 
-  <!-- Footer -->
   <footer class="page-footer">
     <div>
-      <div class="footer-logo">Tulane · WSPH</div>
+      <div class="footer-logo">Tulane &#183; WSPH</div>
       <p><strong>Office of Research Development and Administration</strong><br>
         Celia Scott Weatherhead School of Public Health and Tropical Medicine<br>
         1440 Canal Street, New Orleans, LA 70112<br>
-        Questions? <a href="/cdn-cgi/l/email-protection#1c4b4f4c546e796f797d6e7f745c6869707d727932797869"><span class="__cf_email__" data-cfemail="c59296958db7a0b6a0a4b7a6ad85b1b0a9a4aba0eba0a1b0">[email&#160;protected]</span></a> ·
-        <a href="https://sph.tulane.edu/research/office-research-development" target="_blank">ORDA Website →</a>
+        Questions? <a href="mailto:WSPHresearch@tulane.edu">WSPHresearch@tulane.edu</a> &#183;
+        <a href="https://sph.tulane.edu/research/office-research-development" target="_blank">ORDA Website &#8594;</a>
       </p>
     </div>
-    <p>Comprehensive grant discovery: <a href="https://pivot.proquest.com" target="_blank">PIVOT by ProQuest →</a></p>
+    <p>Comprehensive grant discovery: <a href="https://pivot.proquest.com" target="_blank">PIVOT by ProQuest &#8594;</a></p>
   </footer>
 </main>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-// ══════════════════════════════════════════════════════════════
-//  DEPARTMENTS
-// ══════════════════════════════════════════════════════════════
-const DEPARTMENTS = [
+<script>
+var DEPARTMENTS = [
   { id:"ALL",  label:"All Departments",                          abbr:null,   color:"#285C4D", bg:"#e0ede8", icon:"🏛️",  desc:"All highlighted opportunities across the school", url:null },
   { id:"BIOS", label:"Biostatistics & Data Science",             abbr:"BIOS", color:"#1a5faa", bg:"#deeaf9", icon:"📊",  desc:"Statistical methods, data science, and quantitative health research", url:"https://sph.tulane.edu/bios/home" },
   { id:"ENHS", label:"Environmental Health Sciences",            abbr:"ENHS", color:"#276f3e", bg:"#d5edd8", icon:"🌿",  desc:"Environmental exposures, toxicology, and occupational health", url:"https://sph.tulane.edu/enhs/home" },
@@ -482,32 +313,28 @@ const DEPARTMENTS = [
   { id:"SBPS", label:"Social, Behavioral & Population Sciences", abbr:"SBPS", color:"#8a3020", bg:"#f7ddd8", icon:"👥",  desc:"Social determinants, behavioral interventions, and health equity", url:"https://sph.tulane.edu/sbps/home" },
   { id:"TRMD", label:"Tropical Medicine & Infectious Disease",   abbr:"TRMD", color:"#2d5e1e", bg:"#d8edce", icon:"🦠",  desc:"Infectious diseases, parasitology, vector-borne illness, and tropical medicine", url:"https://sph.tulane.edu/trmd/home" }
 ];
-const DEPT_MAP = {};
-DEPARTMENTS.forEach(d => DEPT_MAP[d.id] = d);
 
-// ══════════════════════════════════════════════════════════════
-//  AUTO-TAG KEYWORDS (federal grants)
-// ══════════════════════════════════════════════════════════════
-const DEPT_KEYWORDS = {
+var DEPT_MAP = {};
+DEPARTMENTS.forEach(function(d) { DEPT_MAP[d.id] = d; });
+
+var DEPT_KEYWORDS = {
   BIOS: ["biostatistics","statistical","data science","machine learning","bioinformatics","computational","modeling","quantitative","analytics","big data","algorithms","predictive"],
   ENHS: ["environmental health","environmental exposure","toxicology","occupational health","air quality","water quality","hazardous","climate","pollution","chemical exposure","environmental justice","pesticide","lead exposure","contaminant"],
   EPID: ["epidemiology","epidemiologic","surveillance","etiology","cohort","case-control","outbreak","disease prevention","incidence","prevalence","risk factor","screening"],
   HPAM: ["health policy","health management","health systems","insurance","medicaid","medicare","health care access","hospital","workforce development","health administration","quality improvement","cost-effectiveness","payment","health reform"],
-  IHSD: ["global health","international health","low-income country","developing country","sustainable development","international development","humanitarian","foreign aid","health systems strengthening","capacity building","refugee","low and middle income"],
+  IHSD: ["global health","international health","low-income country","developing country","sustainable development","international development","humanitarian","foreign aid","health systems strengthening","capacity building","refugee"],
   SBPS: ["social determinants","health equity","behavioral","community health","disparities","mental health","social","population health","minority health","underserved","health behavior","community-based","poverty","substance use","trauma"],
   TRMD: ["tropical medicine","infectious disease","malaria","tuberculosis","hiv","neglected tropical","vector-borne","parasite","zoonotic","emerging infectious","pandemic","viral","bacterial","vaccine","antimicrobial","dengue","cholera","helminth","protozoa","arboviral","pathogen"]
 };
+
 function autoTagDepts(text) {
-  const low = (text||"").toLowerCase();
-  return Object.entries(DEPT_KEYWORDS).filter(([,kws]) => kws.some(k => low.includes(k))).map(([id]) => id);
+  var low = (text || "").toLowerCase();
+  return Object.keys(DEPT_KEYWORDS).filter(function(id) {
+    return DEPT_KEYWORDS[id].some(function(k) { return low.indexOf(k) >= 0; });
+  });
 }
 
-// ══════════════════════════════════════════════════════════════
-//  ORDA CURATED OPPORTUNITIES
-//  Fields: title, funder, type, description, amount, deadline
-//          (YYYY-MM-DD or null), url, depts[], pinned, added
-// ══════════════════════════════════════════════════════════════
-const CURATED = [
+var CURATED = [
   {
     title: "Health Policy Scholars Program",
     funder: "Robert Wood Johnson Foundation",
@@ -515,7 +342,7 @@ const CURATED = [
     description: "Supports early-career researchers examining policies that affect population health equity, with a focus on underserved communities.",
     amount: "Up to $300,000", deadline: "2026-07-15",
     url: "https://www.rwjf.org/en/grants/funding-opportunities.html",
-    depts: ["HPAM","SBPS"], pinned: true, added: "2026-03-01"
+    depts: ["HPAM","SBPS"], pinned: true, forecasted: false, added: "2026-03-01"
   },
   {
     title: "Grand Challenges Explorations — Global Health",
@@ -524,7 +351,7 @@ const CURATED = [
     description: "Seed funding for bold, innovative global health research ideas. Open to investigators worldwide with novel, untested approaches.",
     amount: "$100,000", deadline: "2026-06-01",
     url: "https://gcgh.grandchallenges.org/",
-    depts: ["IHSD","TRMD","EPID"], pinned: false, added: "2026-03-01"
+    depts: ["IHSD","TRMD","EPID"], pinned: false, forecasted: false, added: "2026-03-01"
   },
   {
     title: "State Preventive Health Partnership Grant",
@@ -533,7 +360,7 @@ const CURATED = [
     description: "Funding for applied public health projects addressing chronic disease prevention in rural and urban Louisiana communities.",
     amount: "$50,000–$150,000", deadline: "2026-05-30",
     url: "#",
-    depts: ["EPID","SBPS","HPAM"], pinned: false, added: "2026-02-15"
+    depts: ["EPID","SBPS","HPAM"], pinned: false, forecasted: false, added: "2026-02-15"
   },
   {
     title: "Health Data Science Innovation Award",
@@ -542,7 +369,7 @@ const CURATED = [
     description: "Investigator-initiated grants using large-scale health data to improve clinical outcomes and care delivery models.",
     amount: "Up to $250,000", deadline: "2026-08-01",
     url: "https://www.unitedhealthgroup.com/research",
-    depts: ["BIOS","HPAM"], pinned: false, added: "2026-03-02"
+    depts: ["BIOS","HPAM"], pinned: false, forecasted: false, added: "2026-03-02"
   },
   {
     title: "Community Health Equity Research Initiative",
@@ -551,7 +378,7 @@ const CURATED = [
     description: "Supports community-based participatory research aimed at dismantling structural barriers to health equity.",
     amount: "Up to $500,000", deadline: "2026-09-15",
     url: "https://www.wkkf.org/",
-    depts: ["SBPS","HPAM","IHSD"], pinned: true, added: "2026-02-20"
+    depts: ["SBPS","HPAM","IHSD"], pinned: true, forecasted: false, added: "2026-02-20"
   },
   {
     title: "Environmental Justice Community Research Program",
@@ -560,7 +387,7 @@ const CURATED = [
     description: "Addresses health impacts of environmental hazards in disadvantaged communities along the Gulf Coast.",
     amount: "$75,000–$200,000", deadline: "2026-07-01",
     url: "#",
-    depts: ["ENHS","EPID","SBPS"], pinned: false, added: "2026-02-10"
+    depts: ["ENHS","EPID","SBPS"], pinned: false, forecasted: false, added: "2026-02-10"
   },
   {
     title: "Gulf Coast Health & Climate Resilience Initiative",
@@ -569,7 +396,7 @@ const CURATED = [
     description: "Investigates the intersection of climate change, environmental degradation, and health outcomes across Gulf Coast communities.",
     amount: "$200,000–$600,000", deadline: "2026-08-15",
     url: "https://www.nationalacademies.org/gulf",
-    depts: ["ENHS","EPID","SBPS","IHSD"], pinned: true, added: "2026-03-01"
+    depts: ["ENHS","EPID","SBPS","IHSD"], pinned: true, forecasted: false, added: "2026-03-01"
   },
   {
     title: "NIH Loan Repayment Program",
@@ -578,296 +405,279 @@ const CURATED = [
     description: "Repays up to $50,000/year in qualified student loan debt for researchers conducting NIH mission-relevant research. Rolling applications accepted year-round.",
     amount: "Up to $50,000/yr", deadline: null,
     url: "https://www.lrp.nih.gov/",
-    depts: ["BIOS","EPID","ENHS","TRMD","SBPS","HPAM","IHSD"], pinned: false, added: "2026-01-15"
+    depts: ["BIOS","EPID","ENHS","TRMD","SBPS","HPAM","IHSD"], pinned: false, forecasted: false, added: "2026-01-15"
   }
 ];
 
-// ══════════════════════════════════════════════════════════════
-//  CONFIG
-// ══════════════════════════════════════════════════════════════
-const FEDERAL_AGENCIES = ["HHS","NIH","CDC","HRSA","AHRQ","SAMHSA","EPA","USDA","NSF"];
-const FED_PAGE_SIZE    = 15;
+var FEDERAL_AGENCIES = ["HHS","NIH","CDC","HRSA","AHRQ","SAMHSA","EPA","USDA","NSF"];
+var FED_PAGE_SIZE = 15;
+var allFederal = [];
+var activeDept = "ALL";
+var activeSource = "all";
+var activeSort = "deadline";
+var searchQuery = "";
+var fedPage = 1;
 
-// ── State ──
-let allFederal   = [];
-let activeDept   = "ALL";
-let activeSource = "all";
-let activeSort   = "deadline";
-let searchQuery  = "";
-let fedPage      = 1;
-
-// ── Helpers ──
 function fmtDate(s) {
   if (!s) return "Rolling";
-  return new Date(s).toLocaleDateString("en-US",{month:"long",day:"numeric",year:"numeric"});
+  return new Date(s).toLocaleDateString("en-US", {month:"long", day:"numeric", year:"numeric"});
 }
 function daysUntil(s) {
   if (!s) return null;
-  const now=new Date(); now.setHours(0,0,0,0);
-  const d=new Date(s); d.setHours(0,0,0,0);
-  return Math.round((d-now)/86400000);
+  var now = new Date(); now.setHours(0,0,0,0);
+  var d = new Date(s); d.setHours(0,0,0,0);
+  return Math.round((d - now) / 86400000);
 }
-function urgClass(s) { const d=daysUntil(s); return d===null?"normal":d<=14?"urgent":d<=30?"soon":"normal"; }
+function urgClass(s) {
+  var d = daysUntil(s);
+  if (d === null) return "normal";
+  if (d <= 14) return "urgent";
+  if (d <= 30) return "soon";
+  return "normal";
+}
 function urgLabel(s) {
-  const d=daysUntil(s);
-  if (d===null) return "Rolling deadline";
-  if (d===0)   return "Due today";
-  if (d===1)   return "1 day left";
-  if (d<=30)   return `${d} days left`;
-  return `Due ${fmtDate(s)}`;
+  var d = daysUntil(s);
+  if (d === null) return "Rolling deadline";
+  if (d === 0) return "Due today";
+  if (d === 1) return "1 day left";
+  if (d <= 30) return d + " days left";
+  return "Due " + fmtDate(s);
 }
-function isOpen(s) { const d=daysUntil(s); return d===null||d>=0; }
+function isOpen(s) {
+  var d = daysUntil(s);
+  return d === null || d >= 0;
+}
 function parseAmt(s) {
   if (!s) return 0;
-  const ns=(s||"").replace(/[^0-9]/g," ").trim().split(/\s+/).map(Number).filter(Boolean);
-  return ns.length?Math.max(...ns):0;
+  var ns = (s || "").replace(/[^0-9]/g, " ").trim().split(/\s+/).map(Number).filter(Boolean);
+  return ns.length ? Math.max.apply(null, ns) : 0;
 }
 function deptTagsHtml(ids) {
-  if (!ids||!ids.length) return "";
-  return `<div class="dept-tags">${ids.map(id=>{const d=DEPT_MAP[id];return d?`<span class="dept-tag" style="color:${d.color};border-color:${d.color};background:${d.bg}" title="${d.label}">${d.abbr}</span>`:""}).join("")}</div>`;
+  if (!ids || !ids.length) return "";
+  var tags = ids.map(function(id) {
+    var d = DEPT_MAP[id];
+    return d ? "<span class='dept-tag' style='color:" + d.color + ";border-color:" + d.color + ";background:" + d.bg + "' title='" + d.label + "'>" + d.abbr + "</span>" : "";
+  });
+  return "<div class='dept-tags'>" + tags.join("") + "</div>";
 }
-function matchDept(depts) { return activeDept==="ALL"||(depts||[]).includes(activeDept); }
+function matchDept(depts) {
+  return activeDept === "ALL" || (depts || []).indexOf(activeDept) >= 0;
+}
 
-// ══════════════════════════════════════════════════════════════
-//  BUILD DEPT TABS
-// ══════════════════════════════════════════════════════════════
 function buildTabs() {
-  const wrap=document.getElementById("dept-tabs");
-  wrap.innerHTML=DEPARTMENTS.map(d=>`
-    <button class="dept-tab ${d.id===activeDept?"active":""}" data-dept="${d.id}">
-      ${d.abbr?`<span class="abbr">${d.abbr}</span>`:""}${d.id==="ALL"?"All Departments":d.label.replace(" & Sustainable Dev.","").replace(" & Population Sciences"," & Pop. Sci.")}
-    </button>`).join("");
-  wrap.querySelectorAll(".dept-tab").forEach(btn=>btn.addEventListener("click",()=>{
-    activeDept=btn.dataset.dept; fedPage=1;
-    wrap.querySelectorAll(".dept-tab").forEach(b=>b.classList.remove("active"));
-    btn.classList.add("active"); renderAll();
-  }));
+  var wrap = document.getElementById("dept-tabs");
+  wrap.innerHTML = DEPARTMENTS.map(function(d) {
+    return "<button class='dept-tab" + (d.id === activeDept ? " active" : "") + "' data-dept='" + d.id + "'>" +
+      (d.abbr ? "<span class='abbr'>" + d.abbr + "</span>" : "") +
+      (d.id === "ALL" ? "All Departments" : d.label.replace(" & Sustainable Dev.", "").replace(" & Population Sciences", " & Pop. Sci.")) +
+      "</button>";
+  }).join("");
+  wrap.querySelectorAll(".dept-tab").forEach(function(btn) {
+    btn.addEventListener("click", function() {
+      activeDept = btn.dataset.dept;
+      fedPage = 1;
+      wrap.querySelectorAll(".dept-tab").forEach(function(b) { b.classList.remove("active"); });
+      btn.classList.add("active");
+      renderAll();
+    });
+  });
 }
 
-// ══════════════════════════════════════════════════════════════
-//  DEPT BANNER
-// ══════════════════════════════════════════════════════════════
 function renderDeptBanner() {
-  const el=document.getElementById("dept-banner-container");
-  if (activeDept==="ALL"){el.innerHTML="";return;}
-  const d=DEPT_MAP[activeDept];
-  const nC=CURATED.filter(o=>isOpen(o.deadline)&&matchDept(o.depts)).length;
-  const nF=allFederal.filter(o=>{const dl=o.closeDate;return isOpen(dl)&&matchDept(o.depts);}).length;
-  el.innerHTML=`
-    <div class="dept-banner">
-      <div class="dept-banner-icon" style="background:${d.bg}">${d.icon}</div>
-      <div class="dept-banner-body">
-        <h2>${d.label}</h2>
-        <p>${d.desc}${d.url?` · <a href="${d.url}" target="_blank">Department website →</a>`:""}
-        </p>
-      </div>
-      <div class="dept-banner-count">
-        <div class="num">${nC+nF}</div>
-        <div class="lbl">open now</div>
-      </div>
-    </div>`;
+  var el = document.getElementById("dept-banner-container");
+  if (activeDept === "ALL") { el.innerHTML = ""; return; }
+  var d = DEPT_MAP[activeDept];
+  var nC = CURATED.filter(function(o) { return isOpen(o.deadline) && matchDept(o.depts); }).length;
+  var nF = allFederal.filter(function(o) { return isOpen(o.closeDate) && matchDept(o.depts); }).length;
+  el.innerHTML = "<div class='dept-banner'>" +
+    "<div class='dept-banner-icon' style='background:" + d.bg + "'>" + d.icon + "</div>" +
+    "<div class='dept-banner-body'><h2>" + d.label + "</h2>" +
+    "<p>" + d.desc + (d.url ? " &middot; <a href='" + d.url + "' target='_blank'>Department website &rarr;</a>" : "") + "</p></div>" +
+    "<div class='dept-banner-count'><div class='num'>" + (nC + nF) + "</div><div class='lbl'>open now</div></div>" +
+    "</div>";
 }
 
-// ══════════════════════════════════════════════════════════════
-//  DEADLINE STRIP
-// ══════════════════════════════════════════════════════════════
 function renderStrip(visible) {
-  const strip=document.getElementById("deadline-strip");
-  const pills=document.getElementById("strip-pills");
-  const urgent=visible.filter(o=>!o.forecasted&&o.deadline&&daysUntil(o.deadline)<=30);
-  if (!urgent.length){strip.style.display="none";return;}
-  strip.style.display="block";
-  pills.innerHTML=urgent.map(o=>`
-    <div class="strip-pill" onclick="scrollToCard('${o.title.replace(/'/g,"\\'")}')">
-      <span class="pill-name">${o.title.length>42?o.title.slice(0,42)+"…":o.title}</span>
-      <span class="pill-days">${daysUntil(o.deadline)}d</span>
-    </div>`).join("");
+  var strip = document.getElementById("deadline-strip");
+  var pills = document.getElementById("strip-pills");
+  var urgent = visible.filter(function(o) { return !o.forecasted && o.deadline && daysUntil(o.deadline) <= 30; });
+  if (!urgent.length) { strip.style.display = "none"; return; }
+  strip.style.display = "block";
+  pills.innerHTML = urgent.map(function(o) {
+    var name = o.title.length > 42 ? o.title.slice(0, 42) + "..." : o.title;
+    return "<div class='strip-pill' onclick='scrollToCard("" + o.title.replace(/"/g, "&quot;") + "")'>" +
+      "<span class='pill-name'>" + name + "</span>" +
+      "<span class='pill-days'>" + daysUntil(o.deadline) + "d</span></div>";
+  }).join("");
 }
+
 function scrollToCard(title) {
-  document.querySelectorAll(".opp-card").forEach(c=>{
-    if (c.dataset.title===title){
-      c.scrollIntoView({behavior:"smooth",block:"center"});
-      c.style.outline="2.5px solid var(--tulane-blue)";
-      setTimeout(()=>c.style.outline="",1800);
+  document.querySelectorAll(".opp-card").forEach(function(c) {
+    if (c.dataset.title === title) {
+      c.scrollIntoView({behavior:"smooth", block:"center"});
+      c.style.outline = "2.5px solid var(--tulane-blue)";
+      setTimeout(function() { c.style.outline = ""; }, 1800);
     }
   });
 }
 
-// ══════════════════════════════════════════════════════════════
-//  RENDER CURATED CARDS
-// ══════════════════════════════════════════════════════════════
 function getVisibleCurated() {
-  return CURATED.filter(o=>{
-    return isOpen(o.deadline)
-      && matchDept(o.depts)
-      && (activeSource==="all"||o.type===activeSource)
-      && (!searchQuery||(o.title+o.funder+o.description).toLowerCase().includes(searchQuery));
-  }).sort((a,b)=>{
-    if (activeSort==="deadline"){
-      if (a.pinned&&!b.pinned) return -1;
-      if (!a.pinned&&b.pinned) return 1;
-      const da=a.deadline?daysUntil(a.deadline):9999;
-      const db=b.deadline?daysUntil(b.deadline):9999;
-      return da-db;
+  return CURATED.filter(function(o) {
+    return isOpen(o.deadline) &&
+      matchDept(o.depts) &&
+      (activeSource === "all" || o.type === activeSource) &&
+      (!searchQuery || (o.title + o.funder + o.description).toLowerCase().indexOf(searchQuery) >= 0);
+  }).sort(function(a, b) {
+    if (activeSort === "deadline") {
+      if (a.pinned && !b.pinned) return -1;
+      if (!a.pinned && b.pinned) return 1;
+      var da = a.deadline ? daysUntil(a.deadline) : 9999;
+      var db = b.deadline ? daysUntil(b.deadline) : 9999;
+      return da - db;
     }
-    if (activeSort==="added") return (b.added||"0").localeCompare(a.added||"0");
-    if (activeSort==="amount") return parseAmt(b.amount)-parseAmt(a.amount);
+    if (activeSort === "added") return (b.added || "0").localeCompare(a.added || "0");
+    if (activeSort === "amount") return parseAmt(b.amount) - parseAmt(a.amount);
     return 0;
   });
 }
 
+var TYPE_LABELS = {federal:"Federal", foundation:"Foundation", state:"State / Local", industry:"Industry", internal:"Internal"};
+var TYPE_CLASSES = {federal:"src-federal", foundation:"src-foundation", state:"src-state", industry:"src-industry", internal:"src-internal"};
+
 function renderCurated() {
-  const grid=document.getElementById("cards-grid");
-  const countEl=document.getElementById("curated-count");
-  const fedDiv=document.getElementById("fed-divider");
-  const fedSec=document.getElementById("federal-section");
+  var grid = document.getElementById("cards-grid");
+  var countEl = document.getElementById("curated-count");
+  var fedDiv = document.getElementById("fed-divider");
+  var fedSec = document.getElementById("federal-section");
+  var cHd = document.getElementById("curated-hd");
 
-  // hide federal if filtering to non-federal source
-  const showFed = activeSource==="all"||activeSource==="federal";
-  fedDiv.style.display = showFed?"":"none";
-  fedSec.style.display = showFed?"":"none";
+  var showFed = (activeSource === "all" || activeSource === "federal");
+  fedDiv.style.display = showFed ? "" : "none";
+  fedSec.style.display = showFed ? "" : "none";
 
-  // hide curated if filtering to federal only
-  if (activeSource==="federal"){
-    grid.innerHTML=""; countEl.textContent="";
-    document.querySelector(".section-hd").style.display="none";
-    document.querySelector(".deadline-strip") && (document.getElementById("deadline-strip").style.display="none");
+  if (activeSource === "federal") {
+    grid.innerHTML = "";
+    countEl.textContent = "";
+    cHd.style.display = "none";
+    document.getElementById("deadline-strip").style.display = "none";
     return;
   }
-  document.querySelector(".section-hd").style.display="";
+  cHd.style.display = "";
 
-  const data=getVisibleCurated();
-  countEl.innerHTML=`<strong>${data.length}</strong> opportunit${data.length===1?"y":"ies"}`;
+  var data = getVisibleCurated();
+  countEl.innerHTML = "<strong>" + data.length + "</strong> opportunit" + (data.length === 1 ? "y" : "ies");
   renderStrip(data);
 
-  if (!data.length){
-    grid.innerHTML=`<div class="empty-state"><div class="empty-icon">📋</div><h3>No featured opportunities</h3><p>Try adjusting your filters, or visit <a href="https://pivot.proquest.com" target="_blank">PIVOT</a> for comprehensive discovery.</p></div>`;
+  if (!data.length) {
+    grid.innerHTML = "<div class='empty-state'><div class='empty-icon'>📋</div><h3>No featured opportunities</h3><p>Try adjusting your filters, or visit <a href='https://pivot.proquest.com' target='_blank'>PIVOT</a> for comprehensive discovery.</p></div>";
     return;
   }
-  const tl={federal:"Federal",foundation:"Foundation",state:"State / Local",industry:"Industry",internal:"Internal"};
-  const tc={federal:"src-federal",foundation:"src-foundation",state:"src-state",industry:"src-industry",internal:"src-internal"};
-  grid.innerHTML=data.map((o,i)=>`
-    <div class="opp-card type-${o.type}" data-title="${o.title.replace(/"/g,"&quot;")}" style="animation-delay:${i*.04}s">
-      ${o.pinned?'<span class="pinned-badge">⭐ ORDA Pick</span>':""}
-      <div class="card-row1">
-        <span class="src-tag ${tc[o.type]||"src-foundation"}">${tl[o.type]||o.type}</span>
-        ${o.forecasted
-          ? '<span class="forecasted-badge">📅 Forecasted</span>'
-          : `<span class="urg-chip urg-${urgClass(o.deadline)}">${urgLabel(o.deadline)}</span>`}
-      </div>
-      <div class="card-title">${o.title}</div>
-      <div class="card-funder">${o.funder}</div>
-      <div class="card-dl">${o.forecasted ? "Expected:" : "Deadline:"} <span>${fmtDate(o.deadline)}</span></div>
-      ${deptTagsHtml(o.depts)}
-      <div class="card-desc">${o.description}</div>
-      <div class="card-footer">
-        ${o.amount?`<span class="amount-pill">${o.amount}</span>`:"<span></span>"}
-        ${o.url&&o.url!=="#"?`<a href="${o.url}" target="_blank" class="card-link">Learn more →</a>`:""}
-      </div>
-    </div>`).join("");
+
+  var html = "";
+  for (var i = 0; i < data.length; i++) {
+    var o = data[i];
+    var dlLabel = o.forecasted ? "Expected:" : "Deadline:";
+    var urgChip = o.forecasted
+      ? "<span class='forecasted-badge'>&#128197; Forecasted</span>"
+      : "<span class='urg-chip urg-" + urgClass(o.deadline) + "'>" + urgLabel(o.deadline) + "</span>";
+    html += "<div class='opp-card type-" + o.type + "' data-title='" + o.title.replace(/'/g, "&#39;") + "' style='animation-delay:" + (i * 0.04) + "s'>";
+    html += "<div class='card-row1'>";
+    html += "<span class='src-tag " + (TYPE_CLASSES[o.type] || "src-foundation") + "'>" + (TYPE_LABELS[o.type] || o.type) + "</span>";
+    html += urgChip;
+    html += "</div>";
+    html += "<div class='card-title'>" + o.title + "</div>";
+    html += "<div class='card-funder'>" + o.funder + "</div>";
+    html += "<div class='card-dl'>" + dlLabel + " <span>" + fmtDate(o.deadline) + "</span></div>";
+    html += deptTagsHtml(o.depts);
+    html += "<div class='card-desc'>" + o.description + "</div>";
+    html += "<div class='card-footer'>";
+    html += o.amount ? "<span class='amount-pill'>" + o.amount + "</span>" : "<span></span>";
+    html += (o.url && o.url !== "#") ? "<a href='" + o.url + "' target='_blank' class='card-link'>Learn more &rarr;</a>" : "";
+    html += "</div></div>";
+  }
+  grid.innerHTML = html;
 }
 
-// ══════════════════════════════════════════════════════════════
-//  RENDER FEDERAL LIST
-// ══════════════════════════════════════════════════════════════
 function getVisibleFederal() {
-  return allFederal.filter(o=>{
-    return isOpen(o.closeDate)
-      && matchDept(o.depts)
-      && (!searchQuery||(o.title+(o.agencyName||"")+(o.synopsis||"")).toLowerCase().includes(searchQuery));
+  return allFederal.filter(function(o) {
+    return isOpen(o.closeDate) &&
+      matchDept(o.depts) &&
+      (!searchQuery || (o.title + (o.agencyName || "") + (o.synopsis || "")).toLowerCase().indexOf(searchQuery) >= 0);
   });
 }
 
 function renderFederal() {
-  if (activeSource!=="all"&&activeSource!=="federal") return;
-  const container=document.getElementById("federal-container");
-  const countEl=document.getElementById("federal-count");
-  const filtered=getVisibleFederal();
-  countEl.innerHTML=`<strong>${filtered.length.toLocaleString()}</strong> opportunit${filtered.length===1?"y":"ies"}`;
-  const totalPages=Math.max(1,Math.ceil(filtered.length/FED_PAGE_SIZE));
-  if (fedPage>totalPages) fedPage=1;
-  const slice=filtered.slice((fedPage-1)*FED_PAGE_SIZE, fedPage*FED_PAGE_SIZE);
+  if (activeSource !== "all" && activeSource !== "federal") return;
+  var container = document.getElementById("federal-container");
+  var countEl = document.getElementById("federal-count");
+  var filtered = getVisibleFederal();
+  countEl.innerHTML = "<strong>" + filtered.length.toLocaleString() + "</strong> opportunit" + (filtered.length === 1 ? "y" : "ies");
+  var totalPages = Math.max(1, Math.ceil(filtered.length / FED_PAGE_SIZE));
+  if (fedPage > totalPages) fedPage = 1;
+  var slice = filtered.slice((fedPage - 1) * FED_PAGE_SIZE, fedPage * FED_PAGE_SIZE);
 
-  if (!slice.length){
-    container.innerHTML=`<div class="loading-state" style="padding:28px"><p style="font-size:.84rem;color:var(--muted)">No federal opportunities match your current filters.</p></div>`;
-    document.getElementById("pagination").innerHTML=""; return;
+  if (!slice.length) {
+    container.innerHTML = "<div class='loading-state' style='padding:28px'><p style='font-size:.84rem;color:var(--muted)'>No federal opportunities match your current filters.</p></div>";
+    document.getElementById("pagination").innerHTML = "";
+    return;
   }
-  container.innerHTML=`<div class="federal-list">`+slice.map((o,i)=>{
-    const dl=o.closeDate; const uc=urgClass(dl);
-    return `
-    <div class="fed-item" style="animation-delay:${i*.02}s">
-      <div class="fed-left">
-        <div class="fed-meta">
-          <span class="agency-tag">${(o.agencyCode||"HHS").split("-")[0].trim()}</span>
-          ${o.number?`<span class="opp-num">${o.number}</span>`:""}
-        </div>
-        <div class="fed-title">${o.title}</div>
-        <div class="fed-agency">${o.agencyName||""}${o.postDate?" · Posted "+fmtDate(o.postDate):""}</div>
-        ${o.depts&&o.depts.length?`<div class="fed-dept-tags">${deptTagsHtml(o.depts)}</div>`:""}
-      </div>
-      <div class="fed-right">
-        <div class="fed-dl-rel ${uc}">${urgLabel(dl)}</div>
-        <div class="fed-dl-abs">${dl?fmtDate(dl):"—"}</div>
-        <a href="https://www.grants.gov/search-results-detail/${o.id}" target="_blank" class="fed-link">View on Grants.gov →</a>
-      </div>
-    </div>`; }).join("")+`</div>`;
+
+  var html = "<div class='federal-list'>";
+  for (var i = 0; i < slice.length; i++) {
+    var o = slice[i];
+    var dl = o.closeDate;
+    var uc = urgClass(dl);
+    html += "<div class='fed-item' style='animation-delay:" + (i * 0.02) + "s'>";
+    html += "<div class='fed-left'>";
+    html += "<div class='fed-meta'>";
+    html += "<span class='agency-tag'>" + ((o.agencyCode || "HHS").split("-")[0].trim()) + "</span>";
+    html += o.number ? "<span class='opp-num'>" + o.number + "</span>" : "";
+    html += "</div>";
+    html += "<div class='fed-title'>" + o.title + "</div>";
+    html += "<div class='fed-agency'>" + (o.agencyName || "") + (o.postDate ? " &middot; Posted " + fmtDate(o.postDate) : "") + "</div>";
+    html += (o.depts && o.depts.length) ? "<div class='fed-dept-tags'>" + deptTagsHtml(o.depts) + "</div>" : "";
+    html += "</div>";
+    html += "<div class='fed-right'>";
+    html += "<div class='fed-dl-rel " + uc + "'>" + urgLabel(dl) + "</div>";
+    html += "<div class='fed-dl-abs'>" + (dl ? fmtDate(dl) : "&mdash;") + "</div>";
+    html += "<a href='https://www.grants.gov/search-results-detail/" + o.id + "' target='_blank' class='fed-link'>View on Grants.gov &rarr;</a>";
+    html += "</div></div>";
+  }
+  html += "</div>";
+  container.innerHTML = html;
   renderPagination(totalPages);
 }
 
 function renderPagination(total) {
-  const el=document.getElementById("pagination");
-  if (total<=1){el.innerHTML="";return;}
-  const cp=fedPage,max=5;
-  let s=Math.max(1,cp-2),e=Math.min(total,s+max-1);
-  if (e-s<max-1) s=Math.max(1,e-max+1);
-  let h=`<button class="page-btn" onclick="goFedPage(${cp-1})" ${cp===1?"disabled":""}>← Prev</button>`;
-  if (s>1) h+=`<button class="page-btn" onclick="goFedPage(1)">1</button>${s>2?'<span class="page-sep">…</span>':""}`;
-  for (let p=s;p<=e;p++) h+=`<button class="page-btn ${p===cp?"active":""}" onclick="goFedPage(${p})">${p}</button>`;
-  if (e<total) h+=`${e<total-1?'<span class="page-sep">…</span>':""}<button class="page-btn" onclick="goFedPage(${total})">${total}</button>`;
-  h+=`<button class="page-btn" onclick="goFedPage(${cp+1})" ${cp===total?"disabled":""}>Next →</button>`;
-  el.innerHTML=h;
-}
-function goFedPage(p){
-  fedPage=p; renderFederal();
-  document.getElementById("federal-section").scrollIntoView({behavior:"smooth",block:"start"});
+  var el = document.getElementById("pagination");
+  if (total <= 1) { el.innerHTML = ""; return; }
+  var cp = fedPage, max = 5;
+  var s = Math.max(1, cp - 2), e = Math.min(total, s + max - 1);
+  if (e - s < max - 1) s = Math.max(1, e - max + 1);
+  var h = "<button class='page-btn' onclick='goFedPage(" + (cp-1) + ")'" + (cp===1 ? " disabled" : "") + ">&larr; Prev</button>";
+  if (s > 1) h += "<button class='page-btn' onclick='goFedPage(1)'>1</button>" + (s > 2 ? "<span class='page-sep'>&#8230;</span>" : "");
+  for (var p = s; p <= e; p++) h += "<button class='page-btn" + (p===cp ? " active" : "") + "' onclick='goFedPage(" + p + ")'>" + p + "</button>";
+  if (e < total) h += (e < total-1 ? "<span class='page-sep'>&#8230;</span>" : "") + "<button class='page-btn' onclick='goFedPage(" + total + ")'>" + total + "</button>";
+  h += "<button class='page-btn' onclick='goFedPage(" + (cp+1) + ")'" + (cp===total ? " disabled" : "") + ">Next &rarr;</button>";
+  el.innerHTML = h;
 }
 
-// ══════════════════════════════════════════════════════════════
-//  FETCH GRANTS.GOV
-// ══════════════════════════════════════════════════════════════
-async function fetchFederal() {
-  const errEl=document.getElementById("federal-error");
-  try {
-    const r=await fetch("https://apply07.grants.gov/grantsws/rest/opportunities/search/",{
-      method:"POST",headers:{"Content-Type":"application/json"},
-      body:JSON.stringify({keyword:"public health",oppStatuses:"posted",agencies:FEDERAL_AGENCIES.join("|"),rows:500,sortBy:"openDate|desc"})
-    });
-    if (!r.ok) throw new Error(`HTTP ${r.status}`);
-    const data=await r.json();
-    allFederal=(data.oppHits||[]).map(o=>({
-      id:o.id,title:o.title,number:o.number,
-      agencyCode:o.agencyCode,agencyName:o.agencyName,
-      postDate:o.openDate,closeDate:o.closeDate,synopsis:o.synopsis||"",
-      depts:autoTagDepts((o.title||"")+" "+(o.synopsis||"")+" "+(o.agencyName||""))
-    }));
-  } catch {
-    allFederal=getSampleFederal();
-    errEl.innerHTML=`⚠️ <strong>Preview mode:</strong> Grants.gov API is not reachable in this sandbox environment. Sample federal data is shown to demonstrate layout. On your hosted site, live opportunities will load automatically.`;
-    errEl.style.display="block";
-  }
-  renderAll();
+function goFedPage(p) {
+  fedPage = p;
+  renderFederal();
+  document.getElementById("federal-section").scrollIntoView({behavior:"smooth", block:"start"});
 }
 
 function getSampleFederal() {
-  return [
+  var samples = [
     {id:"353980",title:"Research on Community Health Interventions for Chronic Disease Prevention (R01)",number:"PA-24-071",agencyCode:"NIH",agencyName:"National Institutes of Health",postDate:"2026-01-01",closeDate:"2026-08-08",synopsis:"behavioral intervention community-based health disparities social determinants underserved"},
     {id:"354100",title:"Improving Health Equity in Maternal and Child Health Programs",number:"HRSA-25-006",agencyCode:"HRSA",agencyName:"Health Resources & Services Administration",postDate:"2026-01-15",closeDate:"2026-06-30",synopsis:"maternal child health equity disparities underserved social determinants"},
     {id:"354230",title:"Public Health Emergency Preparedness Cooperative Agreement",number:"CDC-RFA-TP25-001",agencyCode:"CDC",agencyName:"Centers for Disease Control and Prevention",postDate:"2026-01-10",closeDate:"2026-05-28",synopsis:"surveillance epidemiology infectious disease outbreak epidemiologic"},
     {id:"354310",title:"Substance Use Disorder Treatment & Recovery Support Services",number:"SAMHSA-2025-01",agencyCode:"SAMHSA",agencyName:"Substance Abuse & Mental Health Services Administration",postDate:"2026-01-20",closeDate:"2026-07-01",synopsis:"behavioral mental health substance use social determinants community-based"},
-    {id:"354420",title:"Environmental Health Sciences Research Program (P42)",number:"PA-25-003",agencyCode:"NIH",agencyName:"NIH – National Institute of Environmental Health Sciences",postDate:"2026-02-01",closeDate:"2026-09-10",synopsis:"environmental health environmental exposure toxicology chemical environmental epidemiology occupational"},
+    {id:"354420",title:"Environmental Health Sciences Research Program (P42)",number:"PA-25-003",agencyCode:"NIH",agencyName:"NIH - National Institute of Environmental Health Sciences",postDate:"2026-02-01",closeDate:"2026-09-10",synopsis:"environmental health environmental exposure toxicology chemical environmental epidemiology occupational"},
     {id:"354500",title:"Healthcare-Associated Infections Prevention Research",number:"CDC-RFA-CI25-002",agencyCode:"CDC",agencyName:"Centers for Disease Control and Prevention",postDate:"2026-02-05",closeDate:"2026-06-15",synopsis:"infectious disease epidemiology surveillance healthcare hospital"},
     {id:"354610",title:"Rural Health Workforce Development Program",number:"HRSA-25-012",agencyCode:"HRSA",agencyName:"Health Resources & Services Administration",postDate:"2026-02-12",closeDate:"2026-07-20",synopsis:"health policy health management health systems workforce development rural"},
-    {id:"354720",title:"Cancer Prevention and Control Research Network (CPCRN)",number:"CDC-RFA-DP25-004",agencyCode:"CDC",agencyName:"Centers for Disease Control and Prevention",postDate:"2026-02-18",closeDate:"2026-08-01",synopsis:"epidemiology surveillance cancer prevention community-based behavioral"},
+    {id:"354720",title:"Cancer Prevention and Control Research Network",number:"CDC-RFA-DP25-004",agencyCode:"CDC",agencyName:"Centers for Disease Control and Prevention",postDate:"2026-02-18",closeDate:"2026-08-01",synopsis:"epidemiology surveillance cancer prevention community-based behavioral"},
     {id:"354800",title:"Behavioral and Social Sciences Research Initiative (R21)",number:"PA-25-011",agencyCode:"NIH",agencyName:"National Institutes of Health",postDate:"2026-02-22",closeDate:"2026-10-01",synopsis:"social behavioral health equity intervention mental health social determinants community"},
     {id:"354910",title:"Primary Care Residency Expansion Program",number:"HRSA-25-019",agencyCode:"HRSA",agencyName:"Health Resources & Services Administration",postDate:"2026-03-01",closeDate:"2026-07-15",synopsis:"health management health policy health systems access workforce"},
     {id:"355020",title:"Air Quality and Health Effects Research (STAR Program)",number:"EPA-G2025-STAR-01",agencyCode:"EPA",agencyName:"Environmental Protection Agency",postDate:"2026-03-01",closeDate:"2026-08-30",synopsis:"air quality environmental exposure environmental justice pollution environmental health"},
@@ -878,33 +688,69 @@ function getSampleFederal() {
     {id:"355570",title:"Global HIV/AIDS Research Supplement Program",number:"PA-25-031",agencyCode:"NIH",agencyName:"Fogarty International Center / NIH",postDate:"2026-03-15",closeDate:"2026-09-20",synopsis:"global health international health HIV infectious disease epidemiology developing country"},
     {id:"355680",title:"Biostatistics and Data Science Training Grant (T32)",number:"PA-25-040",agencyCode:"NIH",agencyName:"National Institutes of Health",postDate:"2026-03-18",closeDate:"2026-10-01",synopsis:"biostatistics statistical methods data science computational modeling quantitative"},
     {id:"355790",title:"Climate Change and Health Equity Research Initiative",number:"EPA-G2025-CR-02",agencyCode:"EPA",agencyName:"Environmental Protection Agency",postDate:"2026-03-20",closeDate:"2026-08-15",synopsis:"climate environmental health equity social determinants community pollution air quality"},
-    {id:"356001",title:"Improving Undergraduate STEM Education: Health & Life Sciences",number:"NSF-25-511",agencyCode:"NSF",agencyName:"National Science Foundation — IUSE",postDate:"2026-02-01",closeDate:"2026-09-01",synopsis:"biostatistics data science computational quantitative health sciences education"},
-    {id:"356002",title:"Partnerships for Innovation: Building Human Capacity (PFI-BIC)",number:"NSF-25-601",agencyCode:"NSF",agencyName:"National Science Foundation",postDate:"2026-02-10",closeDate:"2026-08-20",synopsis:"health systems innovation data science community health social determinants"},
-    {id:"356003",title:"Research on Emerging Technologies for Teaching & Learning (RETTL)",number:"NSF-25-554",agencyCode:"NSF",agencyName:"National Science Foundation — EHR",postDate:"2026-02-15",closeDate:"2026-07-30",synopsis:"health education behavioral learning quantitative"},
-    {id:"356004",title:"Human Networks and Data Science — Infrastructure (HNDS-I)",number:"NSF-25-576",agencyCode:"NSF",agencyName:"National Science Foundation — SBE",postDate:"2026-03-01",closeDate:"2026-10-01",synopsis:"social behavioral data science population health quantitative modeling analytics"},
-    {id:"356005",title:"Environmental Chemical Sciences (ECS) Research Program",number:"NSF-25-542",agencyCode:"NSF",agencyName:"National Science Foundation — CHE",postDate:"2026-03-05",closeDate:"2026-09-15",synopsis:"environmental health chemical exposure toxicology contaminant air quality"},
-  ].map(o=>({...o,depts:autoTagDepts(o.title+" "+o.synopsis)}));
+    {id:"356001",title:"Improving Undergraduate STEM Education: Health & Life Sciences",number:"NSF-25-511",agencyCode:"NSF",agencyName:"National Science Foundation - IUSE",postDate:"2026-02-01",closeDate:"2026-09-01",synopsis:"biostatistics data science computational quantitative health sciences education"},
+    {id:"356002",title:"Human Networks and Data Science - Infrastructure (HNDS-I)",number:"NSF-25-576",agencyCode:"NSF",agencyName:"National Science Foundation - SBE",postDate:"2026-03-01",closeDate:"2026-10-01",synopsis:"social behavioral data science population health quantitative modeling analytics"},
+    {id:"356003",title:"Environmental Chemical Sciences Research Program",number:"NSF-25-542",agencyCode:"NSF",agencyName:"National Science Foundation - CHE",postDate:"2026-03-05",closeDate:"2026-09-15",synopsis:"environmental health chemical exposure toxicology contaminant air quality"}
+  ];
+  return samples.map(function(o) {
+    return Object.assign({}, o, {depts: autoTagDepts(o.title + " " + o.synopsis)});
+  });
 }
 
-// ══════════════════════════════════════════════════════════════
-//  MAIN RENDER
-// ══════════════════════════════════════════════════════════════
 function renderAll() {
   renderDeptBanner();
   renderCurated();
   renderFederal();
 }
 
-// ── Controls ──
-document.querySelectorAll(".filter-btn").forEach(btn=>btn.addEventListener("click",()=>{
-  document.querySelectorAll(".filter-btn").forEach(b=>b.classList.remove("active"));
-  btn.classList.add("active"); activeSource=btn.dataset.source; fedPage=1; renderAll();
-}));
-document.getElementById("sort-select").addEventListener("change",e=>{activeSort=e.target.value;renderAll();});
-document.getElementById("search-input").addEventListener("input",e=>{searchQuery=e.target.value.toLowerCase().trim();fedPage=1;renderAll();});
+async function fetchFederal() {
+  var errEl = document.getElementById("federal-error");
+  try {
+    var r = await fetch("https://apply07.grants.gov/grantsws/rest/opportunities/search/", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({keyword:"public health", oppStatuses:"posted", agencies: FEDERAL_AGENCIES.join("|"), rows:500, sortBy:"openDate|desc"})
+    });
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    var data = await r.json();
+    allFederal = (data.oppHits || []).map(function(o) {
+      return {
+        id: o.id, title: o.title, number: o.number,
+        agencyCode: o.agencyCode, agencyName: o.agencyName,
+        postDate: o.openDate, closeDate: o.closeDate, synopsis: o.synopsis || "",
+        depts: autoTagDepts((o.title || "") + " " + (o.synopsis || "") + " " + (o.agencyName || ""))
+      };
+    });
+  } catch(e) {
+    allFederal = getSampleFederal();
+    errEl.innerHTML = "<strong>Preview mode:</strong> Grants.gov API is not reachable in this environment. Sample federal data is shown to demonstrate layout. On your hosted site, live opportunities will load automatically.";
+    errEl.style.display = "block";
+  }
+  renderAll();
+}
 
-// ── Init ──
-document.getElementById("last-updated").textContent="Updated "+new Date().toLocaleDateString("en-US",{month:"long",day:"numeric",year:"numeric"});
+document.querySelectorAll(".filter-btn").forEach(function(btn) {
+  btn.addEventListener("click", function() {
+    document.querySelectorAll(".filter-btn").forEach(function(b) { b.classList.remove("active"); });
+    btn.classList.add("active");
+    activeSource = btn.dataset.source;
+    fedPage = 1;
+    renderAll();
+  });
+});
+
+document.getElementById("sort-select").addEventListener("change", function(e) {
+  activeSort = e.target.value;
+  renderAll();
+});
+
+document.getElementById("search-input").addEventListener("input", function(e) {
+  searchQuery = e.target.value.toLowerCase().trim();
+  fedPage = 1;
+  renderAll();
+});
+
+document.getElementById("last-updated").textContent = "Updated " + new Date().toLocaleDateString("en-US", {month:"long", day:"numeric", year:"numeric"});
 buildTabs();
 fetchFederal();
 </script>
