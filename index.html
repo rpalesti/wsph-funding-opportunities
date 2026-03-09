@@ -294,7 +294,7 @@ main { max-width: 1320px; margin: 0 auto; padding: 30px 40px 80px; }
       <p><strong>Office of Research Development and Administration</strong><br>
         Celia Scott Weatherhead School of Public Health and Tropical Medicine<br>
         1440 Canal Street, New Orleans, LA 70112<br>
-        Questions? <a href="mailto:orda@tulane.edu">orda@tulane.edu</a> &#183;
+        Questions? <a href="mailto:WSPHresearch@tulane.edu">WSPHresearch@tulane.edu</a> &#183;
         <a href="https://sph.tulane.edu/research/office-research-development" target="_blank">ORDA Website &#8594;</a>
       </p>
     </div>
@@ -604,6 +604,14 @@ function getVisibleFederal() {
     return isOpen(o.closeDate) &&
       matchDept(o.depts) &&
       (!searchQuery || (o.title + (o.agencyName || "") + (o.synopsis || "")).toLowerCase().indexOf(searchQuery) >= 0);
+  }).sort(function(a, b) {
+    if (activeSort === "deadline") {
+      var da = a.closeDate ? daysUntil(a.closeDate) : 9999;
+      var db = b.closeDate ? daysUntil(b.closeDate) : 9999;
+      return da - db;
+    }
+    if (activeSort === "added") return (b.postDate || "0").localeCompare(a.postDate || "0");
+    return 0;
   });
 }
 
