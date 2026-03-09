@@ -294,7 +294,7 @@ main { max-width: 1320px; margin: 0 auto; padding: 30px 40px 80px; }
       <p><strong>Office of Research Development and Administration</strong><br>
         Celia Scott Weatherhead School of Public Health and Tropical Medicine<br>
         1440 Canal Street, New Orleans, LA 70112<br>
-        Questions? <a href="/cdn-cgi/l/email-protection#e1b6b2b1a99384928480938289a195948d808f84cf848594"><span class="__cf_email__" data-cfemail="c79094978fb5a2b4a2a6b5a4af87b3b2aba6a9a2e9a2a3b2">[email&#160;protected]</span></a> &#183;
+        Questions? <a href="mailto:orda@tulane.edu">orda@tulane.edu</a> &#183;
         <a href="https://sph.tulane.edu/research/office-research-development" target="_blank">ORDA Website &#8594;</a>
       </p>
     </div>
@@ -302,7 +302,7 @@ main { max-width: 1320px; margin: 0 auto; padding: 30px 40px 80px; }
   </footer>
 </main>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 var DEPARTMENTS = [
   { id:"ALL",  label:"All Departments",                          abbr:null,   color:"#285C4D", bg:"#e0ede8", icon:"🏛️",  desc:"All highlighted opportunities across the school", url:null },
   { id:"BIOS", label:"Biostatistics & Data Science",             abbr:"BIOS", color:"#1a5faa", bg:"#deeaf9", icon:"📊",  desc:"Statistical methods, data science, and quantitative health research", url:"https://sph.tulane.edu/bios/home" },
@@ -506,7 +506,7 @@ function renderStrip(visible) {
   strip.style.display = "block";
   pills.innerHTML = urgent.map(function(o) {
     var name = o.title.length > 42 ? o.title.slice(0, 42) + "..." : o.title;
-    return "<div class='strip-pill' onclick='scrollToCard("" + o.title.replace(/"/g, "&quot;") + "")'>" +
+    return "<div class='strip-pill' onclick='scrollToCard(&quot;" + o.title.replace(/"/g, "&#39;") + "&quot;)'>" +
       "<span class='pill-name'>" + name + "</span>" +
       "<span class='pill-days'>" + daysUntil(o.deadline) + "d</span></div>";
   }).join("");
