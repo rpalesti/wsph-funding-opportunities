@@ -460,7 +460,7 @@ main { max-width: 1320px; margin: 0 auto; padding: 30px 40px 80px; }
       <p><strong>Office of Research Development and Administration</strong><br>
         Celia Scott Weatherhead School of Public Health and Tropical Medicine<br>
         1440 Canal Street, New Orleans, LA 70112<br>
-        Questions? <a href="mailto:WSPHresearch@tulane.edu">WSPHresearch@tulane.edu</a> ·
+        Questions? <a href="/cdn-cgi/l/email-protection#1c4b4f4c546e796f797d6e7f745c6869707d727932797869"><span class="__cf_email__" data-cfemail="c59296958db7a0b6a0a4b7a6ad85b1b0a9a4aba0eba0a1b0">[email&#160;protected]</span></a> ·
         <a href="https://sph.tulane.edu/research/office-research-development" target="_blank">ORDA Website →</a>
       </p>
     </div>
@@ -468,7 +468,7 @@ main { max-width: 1320px; margin: 0 auto; padding: 30px 40px 80px; }
   </footer>
 </main>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // ══════════════════════════════════════════════════════════════
 //  DEPARTMENTS
 // ══════════════════════════════════════════════════════════════
@@ -901,4 +901,12 @@ document.querySelectorAll(".filter-btn").forEach(btn=>btn.addEventListener("clic
   btn.classList.add("active"); activeSource=btn.dataset.source; fedPage=1; renderAll();
 }));
 document.getElementById("sort-select").addEventListener("change",e=>{activeSort=e.target.value;renderAll();});
-document.getElementById("search-input").addEventListener("input",e=>{searchQuery=e.target.value.toLowerCase().trim();fedPage=
+document.getElementById("search-input").addEventListener("input",e=>{searchQuery=e.target.value.toLowerCase().trim();fedPage=1;renderAll();});
+
+// ── Init ──
+document.getElementById("last-updated").textContent="Updated "+new Date().toLocaleDateString("en-US",{month:"long",day:"numeric",year:"numeric"});
+buildTabs();
+fetchFederal();
+</script>
+</body>
+</html>
