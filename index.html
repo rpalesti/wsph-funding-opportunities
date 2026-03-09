@@ -55,15 +55,11 @@ header {
   display: flex; align-items: center; gap: 14px;
   padding: 14px 0; flex: 1;
 }
-.tulane-t {
-  width: 40px; height: 40px; border-radius: 8px; flex-shrink: 0;
-  background: var(--tulane-green);
-  border: 2px solid rgba(255,255,255,.15);
+.logo-shield {
+  width: 44px; height: 42px; flex-shrink: 0;
   display: flex; align-items: center; justify-content: center;
-  font-family: 'Crimson Pro', serif;
-  font-size: 1.5rem; font-weight: 700; color: #fff;
-  line-height: 1; letter-spacing: -.02em;
 }
+.logo-shield img { width: 44px; height: auto; display: block; }
 .logo-text { display: flex; flex-direction: column; }
 .logo-text .school {
   font-family: 'Crimson Pro', serif;
@@ -223,6 +219,7 @@ main { max-width: 1320px; margin: 0 auto; padding: 30px 40px 80px; }
 .opp-card.type-federal::before    { background: var(--storm); }
 .opp-card.type-state::before      { background: var(--mardi); }
 .opp-card.type-industry::before   { background: #7a2080; }
+.opp-card.type-internal::before   { background: var(--tulane-green); }
 .opp-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); border-color: var(--rule); }
 
 .pinned-badge {
@@ -238,11 +235,13 @@ main { max-width: 1320px; margin: 0 auto; padding: 30px 40px 80px; }
 .src-federal    { background: #d4f0f8; color: #005569; }
 .src-state      { background: #e8f5d4; color: #3d6010; }
 .src-industry   { background: #ede6fa; color: #4e1a8a; }
+.src-internal   { background: #e0ede8; color: #1a3d34; }
 
 .urg-chip { font-size: .68rem; font-weight: 600; white-space: nowrap; padding: 3px 8px; border-radius: 4px; }
 .urg-urgent { background: #fff0f0; color: #a82020; }
 .urg-soon   { background: #fff7ed; color: #8a5010; }
 .urg-normal { background: var(--cream); color: var(--muted); font-weight: 400; }
+.forecasted-badge { font-size: .68rem; font-weight: 600; padding: 3px 8px; border-radius: 4px; background: #e8f0fd; color: #2a4a8a; white-space: nowrap; }
 
 .card-title  { font-family: 'Crimson Pro', serif; font-size: 1.05rem; color: var(--tulane-green-dk); line-height: 1.32; margin-bottom: 4px; font-weight: 600; }
 .card-funder { font-size: .78rem; font-weight: 600; color: var(--storm); margin-bottom: 3px; }
@@ -367,7 +366,7 @@ main { max-width: 1320px; margin: 0 auto; padding: 30px 40px 80px; }
 <header>
   <div class="header-inner" style="position:relative">
     <div class="logo-block">
-      <div class="tulane-t">T</div>
+      <div class="logo-shield"><img src="data:image/png;base64,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" alt="Tulane WSPH Shield"></div>
       <div class="logo-text">
         <span class="school">Weatherhead School of Public Health</span>
         <span class="office">Office of Research Development and Administration</span>
@@ -394,6 +393,7 @@ main { max-width: 1320px; margin: 0 auto; padding: 30px 40px 80px; }
     <button class="filter-btn" data-source="foundation">Foundation</button>
     <button class="filter-btn" data-source="state">State / Local</button>
     <button class="filter-btn" data-source="industry">Industry</button>
+    <button class="filter-btn" data-source="internal">Internal</button>
     <div class="vr"></div>
     <div class="sort-wrap">
       <span class="sort-label">Sort</span>
@@ -443,9 +443,8 @@ main { max-width: 1320px; margin: 0 auto; padding: 30px 40px 80px; }
       <div class="result-count" id="federal-count">Loading…</div>
     </div>
     <div class="federal-intro">
-      <strong>Auto-updated daily.</strong> Showing open opportunities from NIH, CDC, HRSA, AHRQ, SAMHSA, and EPA.
-      No opportunities tagged "ORDA Featured" below — for those, see the curated section above.
-      For comprehensive search across all funders, visit <a href="https://pivot.proquest.com" target="_blank">PIVOT</a>.
+      <strong>Auto-updated daily.</strong> Showing open opportunities from NIH, CDC, HRSA, AHRQ, SAMHSA, EPA, and NSF via the <a href="https://grants.gov" target="_blank">Grants.gov</a> public API.
+      For comprehensive search across all funders including private foundations, visit <a href="https://pivot.proquest.com" target="_blank">PIVOT</a>.
     </div>
     <div class="error-note" id="federal-error"></div>
     <div id="federal-container">
@@ -461,8 +460,8 @@ main { max-width: 1320px; margin: 0 auto; padding: 30px 40px 80px; }
       <p><strong>Office of Research Development and Administration</strong><br>
         Celia Scott Weatherhead School of Public Health and Tropical Medicine<br>
         1440 Canal Street, New Orleans, LA 70112<br>
-        Questions? <a href="mailto:research@tulane.edu">research@tulane.edu</a> ·
-        <a href="https://sph.tulane.edu/research/home" target="_blank">ORDA Website →</a>
+        Questions? <a href="mailto:WSPHresearch@tulane.edu">WSPHresearch@tulane.edu</a> ·
+        <a href="https://sph.tulane.edu/research/office-research-development" target="_blank">ORDA Website →</a>
       </p>
     </div>
     <p>Comprehensive grant discovery: <a href="https://pivot.proquest.com" target="_blank">PIVOT by ProQuest →</a></p>
@@ -586,7 +585,7 @@ const CURATED = [
 // ══════════════════════════════════════════════════════════════
 //  CONFIG
 // ══════════════════════════════════════════════════════════════
-const FEDERAL_AGENCIES = ["HHS","NIH","CDC","HRSA","AHRQ","SAMHSA","EPA","USDA"];
+const FEDERAL_AGENCIES = ["HHS","NIH","CDC","HRSA","AHRQ","SAMHSA","EPA","USDA","NSF"];
 const FED_PAGE_SIZE    = 15;
 
 // ── State ──
@@ -675,7 +674,7 @@ function renderDeptBanner() {
 function renderStrip(visible) {
   const strip=document.getElementById("deadline-strip");
   const pills=document.getElementById("strip-pills");
-  const urgent=visible.filter(o=>o.deadline&&daysUntil(o.deadline)<=30);
+  const urgent=visible.filter(o=>!o.forecasted&&o.deadline&&daysUntil(o.deadline)<=30);
   if (!urgent.length){strip.style.display="none";return;}
   strip.style.display="block";
   pills.innerHTML=urgent.map(o=>`
@@ -745,18 +744,20 @@ function renderCurated() {
     grid.innerHTML=`<div class="empty-state"><div class="empty-icon">📋</div><h3>No featured opportunities</h3><p>Try adjusting your filters, or visit <a href="https://pivot.proquest.com" target="_blank">PIVOT</a> for comprehensive discovery.</p></div>`;
     return;
   }
-  const tl={federal:"Federal",foundation:"Foundation",state:"State / Local",industry:"Industry"};
-  const tc={federal:"src-federal",foundation:"src-foundation",state:"src-state",industry:"src-industry"};
+  const tl={federal:"Federal",foundation:"Foundation",state:"State / Local",industry:"Industry",internal:"Internal"};
+  const tc={federal:"src-federal",foundation:"src-foundation",state:"src-state",industry:"src-industry",internal:"src-internal"};
   grid.innerHTML=data.map((o,i)=>`
     <div class="opp-card type-${o.type}" data-title="${o.title.replace(/"/g,"&quot;")}" style="animation-delay:${i*.04}s">
-
+      ${o.pinned?'<span class="pinned-badge">⭐ ORDA Pick</span>':""}
       <div class="card-row1">
         <span class="src-tag ${tc[o.type]||"src-foundation"}">${tl[o.type]||o.type}</span>
-        <span class="urg-chip urg-${urgClass(o.deadline)}">${urgLabel(o.deadline)}</span>
+        ${o.forecasted
+          ? '<span class="forecasted-badge">📅 Forecasted</span>'
+          : `<span class="urg-chip urg-${urgClass(o.deadline)}">${urgLabel(o.deadline)}</span>`}
       </div>
       <div class="card-title">${o.title}</div>
       <div class="card-funder">${o.funder}</div>
-      <div class="card-dl">Deadline: <span>${fmtDate(o.deadline)}</span></div>
+      <div class="card-dl">${o.forecasted ? "Expected:" : "Deadline:"} <span>${fmtDate(o.deadline)}</span></div>
       ${deptTagsHtml(o.depts)}
       <div class="card-desc">${o.description}</div>
       <div class="card-footer">
@@ -877,6 +878,11 @@ function getSampleFederal() {
     {id:"355570",title:"Global HIV/AIDS Research Supplement Program",number:"PA-25-031",agencyCode:"NIH",agencyName:"Fogarty International Center / NIH",postDate:"2026-03-15",closeDate:"2026-09-20",synopsis:"global health international health HIV infectious disease epidemiology developing country"},
     {id:"355680",title:"Biostatistics and Data Science Training Grant (T32)",number:"PA-25-040",agencyCode:"NIH",agencyName:"National Institutes of Health",postDate:"2026-03-18",closeDate:"2026-10-01",synopsis:"biostatistics statistical methods data science computational modeling quantitative"},
     {id:"355790",title:"Climate Change and Health Equity Research Initiative",number:"EPA-G2025-CR-02",agencyCode:"EPA",agencyName:"Environmental Protection Agency",postDate:"2026-03-20",closeDate:"2026-08-15",synopsis:"climate environmental health equity social determinants community pollution air quality"},
+    {id:"356001",title:"Improving Undergraduate STEM Education: Health & Life Sciences",number:"NSF-25-511",agencyCode:"NSF",agencyName:"National Science Foundation — IUSE",postDate:"2026-02-01",closeDate:"2026-09-01",synopsis:"biostatistics data science computational quantitative health sciences education"},
+    {id:"356002",title:"Partnerships for Innovation: Building Human Capacity (PFI-BIC)",number:"NSF-25-601",agencyCode:"NSF",agencyName:"National Science Foundation",postDate:"2026-02-10",closeDate:"2026-08-20",synopsis:"health systems innovation data science community health social determinants"},
+    {id:"356003",title:"Research on Emerging Technologies for Teaching & Learning (RETTL)",number:"NSF-25-554",agencyCode:"NSF",agencyName:"National Science Foundation — EHR",postDate:"2026-02-15",closeDate:"2026-07-30",synopsis:"health education behavioral learning quantitative"},
+    {id:"356004",title:"Human Networks and Data Science — Infrastructure (HNDS-I)",number:"NSF-25-576",agencyCode:"NSF",agencyName:"National Science Foundation — SBE",postDate:"2026-03-01",closeDate:"2026-10-01",synopsis:"social behavioral data science population health quantitative modeling analytics"},
+    {id:"356005",title:"Environmental Chemical Sciences (ECS) Research Program",number:"NSF-25-542",agencyCode:"NSF",agencyName:"National Science Foundation — CHE",postDate:"2026-03-05",closeDate:"2026-09-15",synopsis:"environmental health chemical exposure toxicology contaminant air quality"},
   ].map(o=>({...o,depts:autoTagDepts(o.title+" "+o.synopsis)}));
 }
 
@@ -895,12 +901,4 @@ document.querySelectorAll(".filter-btn").forEach(btn=>btn.addEventListener("clic
   btn.classList.add("active"); activeSource=btn.dataset.source; fedPage=1; renderAll();
 }));
 document.getElementById("sort-select").addEventListener("change",e=>{activeSort=e.target.value;renderAll();});
-document.getElementById("search-input").addEventListener("input",e=>{searchQuery=e.target.value.toLowerCase().trim();fedPage=1;renderAll();});
-
-// ── Init ──
-document.getElementById("last-updated").textContent="Updated "+new Date().toLocaleDateString("en-US",{month:"long",day:"numeric",year:"numeric"});
-buildTabs();
-fetchFederal();
-</script>
-</body>
-</html>
+document.getElementById("search-input").addEventListener("input",e=>{searchQuery=e.target.value.toLowerCase().trim();fedPage=
