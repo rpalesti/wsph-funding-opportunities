@@ -294,7 +294,7 @@ main { max-width: 1320px; margin: 0 auto; padding: 30px 40px 80px; }
       <p><strong>Office of Research Development and Administration</strong><br>
         Celia Scott Weatherhead School of Public Health and Tropical Medicine<br>
         1440 Canal Street, New Orleans, LA 70112<br>
-        Questions? <a href="mailto:WSPHresearch@tulane.edu">WSPHresearch@tulane.edu</a> &#183;
+        Questions? <a href="/cdn-cgi/l/email-protection#e1b6b2b1a99384928480938289a195948d808f84cf848594"><span class="__cf_email__" data-cfemail="c79094978fb5a2b4a2a6b5a4af87b3b2aba6a9a2e9a2a3b2">[email&#160;protected]</span></a> &#183;
         <a href="https://sph.tulane.edu/research/office-research-development" target="_blank">ORDA Website &#8594;</a>
       </p>
     </div>
@@ -302,7 +302,7 @@ main { max-width: 1320px; margin: 0 auto; padding: 30px 40px 80px; }
   </footer>
 </main>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 var DEPARTMENTS = [
   { id:"ALL",  label:"All Departments",                          abbr:null,   color:"#285C4D", bg:"#e0ede8", icon:"🏛️",  desc:"All highlighted opportunities across the school", url:null },
   { id:"BIOS", label:"Biostatistics & Data Science",             abbr:"BIOS", color:"#1a5faa", bg:"#deeaf9", icon:"📊",  desc:"Statistical methods, data science, and quantitative health research", url:"https://sph.tulane.edu/bios/home" },
@@ -705,15 +705,25 @@ function renderAll() {
 
 async function fetchFederal() {
   var errEl = document.getElementById("federal-error");
+
+  // Always render sample data immediately so page is never blank
+  allFederal = getSampleFederal();
+  renderAll();
+
+  // Then attempt live API in background
   try {
+    var controller = new AbortController();
+    var timeout = setTimeout(function() { controller.abort(); }, 8000);
     var r = await fetch("https://apply07.grants.gov/grantsws/rest/opportunities/search/", {
       method: "POST",
       headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({keyword:"public health", oppStatuses:"posted", agencies: FEDERAL_AGENCIES.join("|"), rows:500, sortBy:"openDate|desc"})
+      body: JSON.stringify({keyword:"public health", oppStatuses:"posted", agencies: FEDERAL_AGENCIES.join("|"), rows:500, sortBy:"openDate|desc"}),
+      signal: controller.signal
     });
+    clearTimeout(timeout);
     if (!r.ok) throw new Error("HTTP " + r.status);
     var data = await r.json();
-    allFederal = (data.oppHits || []).map(function(o) {
+    var live = (data.oppHits || []).map(function(o) {
       return {
         id: o.id, title: o.title, number: o.number,
         agencyCode: o.agencyCode, agencyName: o.agencyName,
@@ -721,12 +731,16 @@ async function fetchFederal() {
         depts: autoTagDepts((o.title || "") + " " + (o.synopsis || "") + " " + (o.agencyName || ""))
       };
     });
+    if (live.length > 0) {
+      allFederal = live;
+      errEl.style.display = "none";
+      renderAll();
+    }
   } catch(e) {
-    allFederal = getSampleFederal();
-    errEl.innerHTML = "<strong>Preview mode:</strong> Grants.gov API is not reachable in this environment. Sample federal data is shown to demonstrate layout. On your hosted site, live opportunities will load automatically.";
+    // Sample data already showing — just note it quietly
+    errEl.innerHTML = "<strong>Note:</strong> Showing sample federal data. Live Grants.gov feed will appear when network access is available.";
     errEl.style.display = "block";
   }
-  renderAll();
 }
 
 document.querySelectorAll(".filter-btn").forEach(function(btn) {
