@@ -424,8 +424,9 @@ function fmtDate(s) {
 }
 function daysUntil(s) {
   if (!s) return null;
+  var parts = s.split("-");
+  var d = new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
   var now = new Date(); now.setHours(0,0,0,0);
-  var d = new Date(s); d.setHours(0,0,0,0);
   return Math.round((d - now) / 86400000);
 }
 function urgClass(s) {
