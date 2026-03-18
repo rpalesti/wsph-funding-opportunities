@@ -88,7 +88,7 @@ main { max-width: 1320px; margin: 0 auto; padding: 30px 40px 80px; }
 .deadline-strip { background: #fffbf0; border: 1.5px solid #e8cf85; border-left: 4px solid var(--gold); border-radius: var(--radius); padding: 13px 18px; margin-bottom: 24px; display: none; }
 .strip-label { font-size: .66rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #8a6010; margin-bottom: 9px; }
 .strip-pills { display: flex; gap: 8px; flex-wrap: wrap; }
-.strip-pill { background: #fff; border: 1.5px solid #e8cf85; border-radius: 20px; padding: 5px 12px; font-size: .74rem; cursor: pointer; transition: all .15s; display: flex; align-items: center; gap: 7px; }
+.strip-pill { background: #fff; border: 1.5px solid #e8cf85; border-radius: 20px; padding: 5px 16px; font-size: .74rem; cursor: pointer; transition: all .15s; display: flex; align-items: center; gap: 7px; max-width: 100%; }
 .strip-pill:hover { border-color: var(--gold); box-shadow: var(--shadow-sm); }
 .pill-name { font-weight: 500; color: var(--text); }
 .pill-days { font-weight: 700; color: #8a6010; }
@@ -131,6 +131,8 @@ main { max-width: 1320px; margin: 0 auto; padding: 30px 40px 80px; }
 .card-dl span { color: var(--muted); font-weight: 400; }
 .dept-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 10px; }
 .dept-tag  { font-size: .6rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 2px 7px; border-radius: 4px; border: 1.5px solid; }
+.topic-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 10px; }
+.topic-tag  { font-size: .58rem; font-weight: 500; color: var(--muted); background: var(--cream); padding: 2px 7px; border-radius: 4px; }
 .card-desc   { font-size: .8rem; color: var(--muted); line-height: 1.57; flex: 1; margin-bottom: 14px; }
 .card-footer { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; margin-top: auto; }
 .amount-pill { font-size: .71rem; font-weight: 600; color: var(--gold); background: var(--gold-pale); padding: 3px 10px; border-radius: 5px; }
@@ -204,6 +206,12 @@ main { max-width: 1320px; margin: 0 auto; padding: 30px 40px 80px; }
         <option value="amount">Award amount</option>
       </select>
     </div>
+    <div class="sort-wrap">
+      <span class="sort-label">Topic</span>
+      <select class="sort-select" id="topic-select">
+        <option value="all">All Topics</option>
+      </select>
+    </div>
     <div class="search-wrap">
       <span class="search-icon">&#128269;</span>
       <input type="text" id="search-input" placeholder="Search all opportunities&#8230;" aria-label="Search">
@@ -273,6 +281,28 @@ function autoTagDepts(text) {
   });
 }
 
+var TOPICS = [
+  "Chronic Diseases (Noncommunicable Diseases)",
+  "Maternal and Child Health",
+  "Mental Health and Behavioral Health",
+  "Substance Use and Addiction",
+  "Nutrition and Food Systems",
+  "Environmental and Climate Health",
+  "Global Health and Tropical Medicine",
+  "Health Equity and Social Determinants of Health",
+  "Health Systems and Healthcare Access",
+  "Health Policy and Governance",
+  "Disease Surveillance and Epidemiology",
+  "Biostatistics and Health Data Science",
+  "Clinical Trials and Medical Interventions",
+  "Vaccines and Immunization",
+  "Community and Population Health",
+  "Occupational and Workplace Health",
+  "Aging and Life Course Health",
+  "Digital Health and Health Technology",
+  "Emergency Preparedness and Disaster Health"
+];
+
 var CURATED = [
   {
     title: "Health Policy Scholars Program",
@@ -281,91 +311,85 @@ var CURATED = [
     description: "Supports early-career researchers examining policies that affect population health equity, with a focus on underserved communities.",
     amount: "Up to $300,000", deadline: "2026-07-15",
     url: "https://www.rwjf.org/en/grants/funding-opportunities.html",
-    depts: ["HPAM","SBPS"], pinned: true, forecasted: false, added: "2026-03-01"
+    depts: ["HPAM","SBPS"], pinned: true, forecasted: false, added: "2026-03-01",
+    topics: ["Health Policy and Governance","Health Equity and Social Determinants of Health","Community and Population Health"]
   },
-{
-  title: "Joint Internal Research Grant — CAIDS, CEAI & Center for Public Service",
-  funder: "Connolly Alexander Institute for Data Science / Center for Community-Engaged AI / Center for Public Service (Tulane)",
-  type: "internal",
-  description: "Three Tulane centers offering up to $10,000 through a single application. CAIDS funds data-focused and AI-incorporated research; CEAI funds community-engaged AI research; CPS funds community-engaged faculty and postdoc projects. One application is reviewed independently by all three — projects may receive funding from multiple centers.",
-  amount: "Up to $10,000",
-  deadline: "2026-05-04",
-  url: "https://tulane.co1.qualtrics.com/jfe/form/SV_6LjIV4mijEZwYWa",
-  depts: ["BIOS", "EPID", "SBPS", "HPAM"],
-  pinned: true,
-  forecasted: false,
-  added: "2026-03-09"
-},
-{
-  title: "Gulf Research Program Early-Career Research Fellowship — Community Track",
-  funder: "Gulf Research Program (National Academies of Sciences, Engineering, and Medicine)",
-  type: "foundation",
-  description: "Two-year fellowship for early-career faculty conducting applied research on how climate stressors — heat, flooding, pollution — affect human health and community resilience in the Gulf region. Louisiana qualifies. Must hold a permanent, fully independent faculty position.",
-  amount: "$76,000 over 2 years",
-  deadline: "2026-03-25",
-  url: "https://www.nationalacademies.org/programs/GULF-BGEE-25-P-687/application-process",
-  depts: ["ENHS", "EPID", "SBPS"],
-  pinned: true,
-  forecasted: false,
-  added: "2026-03-09"
-},
-{
-  title: "Continuing to Enhance Global Health Security: Sustain Efforts and Strategies to Protect and Improve Public Health Globally",
-  funder: "Centers for Disease Control and Prevention (CDC-GHC)",
-  type: "federal",
-  description: "Cooperative agreement to sustain and enhance global health security efforts across multiple countries. CDC expects to fund 8 awards under this mechanism.",
-  amount: "$75,000,000 total program funding",
-  deadline: "2026-05-03",
-  url: "https://www.grants.gov/search-results-detail/360342",
-  depts: ["IHSD", "EPID", "TRMD"],
-  pinned: false,
-  forecasted: true,
-  added: "2026-03-09"
-},
-{
-  title: "Expanding Efforts and Strategies to Protect and Improve Global Health Security in Kenya",
-  funder: "Centers for Disease Control and Prevention (CDC-GHC)",
-  type: "federal",
-  description: "Cooperative agreement to expand global health security efforts and strategies in Kenya. CDC expects to fund 4 awards under this mechanism.",
-  amount: "$35,000,000 total program funding",
-  deadline: "2026-05-03",
-  url: "https://www.grants.gov/search-results-detail/360341",
-  depts: ["IHSD", "EPID", "TRMD"],
-  pinned: false,
-  forecasted: true,
-  added: "2026-03-09"
-},
-{
-  title: "Tanzania Global Health Security Partner Engagement: Advancing Efforts and Strategies to Protect and Improve Public Health",
-  funder: "Centers for Disease Control and Prevention (CDC-GHC)",
-  type: "federal",
-  description: "Cooperative agreement to advance global health security partner engagement efforts and strategies in Tanzania. CDC expects to fund 3 awards.",
-  amount: "$5,000,000 total program funding",
-  deadline: "2026-05-03",
-  url: "https://www.grants.gov/search-results-detail/360337",
-  depts: ["IHSD", "EPID", "TRMD"],
-  pinned: false,
-  forecasted: true,
-  added: "2026-03-09"
-},
-{
-  title: "Improving Health Security and Building International Health Regulations Core Capacities in the Republic of Uganda",
-  funder: "Centers for Disease Control and Prevention (CDC-GHC)",
-  type: "federal",
-  description: "Cooperative agreement to strengthen health security and build IHR core capacities in Uganda. CDC expects to fund 3 awards under this mechanism.",
-  amount: "$5,000,000 total program funding",
-  deadline: "2026-05-03",
-  url: "https://www.grants.gov/search-results-detail/360339",
-  depts: ["IHSD", "EPID", "TRMD"],
-  pinned: false,
-  forecasted: true,
-  added: "2026-03-09"
-},
+  {
+    title: "Grand Challenges Explorations — Global Health",
+    funder: "Bill & Melinda Gates Foundation",
+    type: "foundation",
+    description: "Seed funding for bold, innovative global health research ideas. Open to investigators worldwide with novel, untested approaches.",
+    amount: "$100,000", deadline: "2026-06-01",
+    url: "https://gcgh.grandchallenges.org/",
+    depts: ["IHSD","TRMD","EPID"], pinned: false, forecasted: false, added: "2026-03-01",
+    topics: ["Global Health and Tropical Medicine","Disease Surveillance and Epidemiology"]
+  },
+  {
+    title: "State Preventive Health Partnership Grant",
+    funder: "Louisiana Department of Health",
+    type: "state",
+    description: "Funding for applied public health projects addressing chronic disease prevention in rural and urban Louisiana communities.",
+    amount: "$50,000–$150,000", deadline: "2026-05-30",
+    url: "#",
+    depts: ["EPID","SBPS","HPAM"], pinned: false, forecasted: false, added: "2026-02-15",
+    topics: ["Chronic Diseases (Noncommunicable Diseases)","Community and Population Health","Health Equity and Social Determinants of Health"]
+  },
+  {
+    title: "Health Data Science Innovation Award",
+    funder: "UnitedHealth Group R&D",
+    type: "industry",
+    description: "Investigator-initiated grants using large-scale health data to improve clinical outcomes and care delivery models.",
+    amount: "Up to $250,000", deadline: "2026-08-01",
+    url: "https://www.unitedhealthgroup.com/research",
+    depts: ["BIOS","HPAM"], pinned: false, forecasted: false, added: "2026-03-02",
+    topics: ["Biostatistics and Health Data Science","Digital Health and Health Technology","Health Systems and Healthcare Access"]
+  },
+  {
+    title: "Community Health Equity Research Initiative",
+    funder: "W.K. Kellogg Foundation",
+    type: "foundation",
+    description: "Supports community-based participatory research aimed at dismantling structural barriers to health equity.",
+    amount: "Up to $500,000", deadline: "2026-09-15",
+    url: "https://www.wkkf.org/",
+    depts: ["SBPS","HPAM","IHSD"], pinned: true, forecasted: false, added: "2026-02-20",
+    topics: ["Health Equity and Social Determinants of Health","Community and Population Health"]
+  },
+  {
+    title: "Environmental Justice Community Research Program",
+    funder: "Louisiana DEQ / EPA Region 6",
+    type: "state",
+    description: "Addresses health impacts of environmental hazards in disadvantaged communities along the Gulf Coast.",
+    amount: "$75,000–$200,000", deadline: "2026-07-01",
+    url: "#",
+    depts: ["ENHS","EPID","SBPS"], pinned: false, forecasted: false, added: "2026-02-10",
+    topics: ["Environmental and Climate Health","Health Equity and Social Determinants of Health","Community and Population Health"]
+  },
+  {
+    title: "Gulf Coast Health & Climate Resilience Initiative",
+    funder: "Gulf Research Program (National Academies)",
+    type: "foundation",
+    description: "Investigates the intersection of climate change, environmental degradation, and health outcomes across Gulf Coast communities.",
+    amount: "$200,000–$600,000", deadline: "2026-08-15",
+    url: "https://www.nationalacademies.org/gulf",
+    depts: ["ENHS","EPID","SBPS","IHSD"], pinned: true, forecasted: false, added: "2026-03-01",
+    topics: ["Environmental and Climate Health","Community and Population Health","Emergency Preparedness and Disaster Health"]
+  },
+  {
+    title: "NIH Loan Repayment Program",
+    funder: "National Institutes of Health",
+    type: "federal",
+    description: "Repays up to $50,000/year in qualified student loan debt for researchers conducting NIH mission-relevant research. Rolling applications accepted year-round.",
+    amount: "Up to $50,000/yr", deadline: null,
+    url: "https://www.lrp.nih.gov/",
+    depts: ["BIOS","EPID","ENHS","TRMD","SBPS","HPAM","IHSD"], pinned: false, forecasted: false, added: "2026-01-15",
+    topics: []
+  }
 ];
 
 var activeDept = "ALL";
 var activeSource = "all";
 var activeSort = "deadline";
+var activeTopic = "all";
 var searchQuery = "";
 
 function fmtDate(s) {
@@ -453,7 +477,7 @@ function renderStrip(visible) {
   if (!urgent.length) { strip.style.display = "none"; return; }
   strip.style.display = "block";
   pills.innerHTML = urgent.map(function(o) {
-    var name = o.title.length > 42 ? o.title.slice(0, 42) + "..." : o.title;
+    var name = o.title.length > 72 ? o.title.slice(0, 72) + "..." : o.title;
     return "<div class='strip-pill' onclick='scrollToCard(&quot;" + o.title.replace(/"/g, "&#39;") + "&quot;)'>" +
       "<span class='pill-name'>" + name + "</span>" +
       "<span class='pill-days'>" + daysUntil(o.deadline) + "d</span></div>";
@@ -475,6 +499,7 @@ function getVisibleCurated() {
     return isOpen(o.deadline) &&
       matchDept(o.depts) &&
       (activeSource === "all" || o.type === activeSource) &&
+      (activeTopic === "all" || (o.topics && o.topics.indexOf(activeTopic) >= 0)) &&
       (!searchQuery || (o.title + o.funder + o.description).toLowerCase().indexOf(searchQuery) >= 0);
   }).sort(function(a, b) {
     if (activeSort === "deadline") {
@@ -524,6 +549,9 @@ function renderCurated() {
     html += "<div class='card-funder'>" + o.funder + "</div>";
     html += "<div class='card-dl'>" + dlLabel + " <span>" + fmtDate(o.deadline) + "</span></div>";
     html += deptTagsHtml(o.depts);
+    if (o.topics && o.topics.length) {
+      html += "<div class='topic-tags'>" + o.topics.map(function(t) { return "<span class='topic-tag'>" + t + "</span>"; }).join("") + "</div>";
+    }
     html += "<div class='card-desc'>" + o.description + "</div>";
     html += "<div class='card-footer'>";
     html += o.amount ? "<span class='amount-pill'>" + o.amount + "</span>" : "<span></span>";
@@ -549,6 +577,19 @@ document.querySelectorAll(".filter-btn").forEach(function(btn) {
 
 document.getElementById("sort-select").addEventListener("change", function(e) {
   activeSort = e.target.value;
+  renderAll();
+});
+
+// Populate topic dropdown
+var topicSelect = document.getElementById("topic-select");
+TOPICS.forEach(function(t) {
+  var opt = document.createElement("option");
+  opt.value = t;
+  opt.textContent = t;
+  topicSelect.appendChild(opt);
+});
+topicSelect.addEventListener("change", function(e) {
+  activeTopic = e.target.value;
   renderAll();
 });
 
